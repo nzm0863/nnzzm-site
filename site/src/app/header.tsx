@@ -4,14 +4,15 @@ import { usePathname } from "next/navigation";
 
 export default function Header() {
   const pathname = usePathname();
+  if (pathname === "/") return null;
 
   const navItems = [
-    { name: "ホーム", href: "/" },
-    { name: "ブログ", href: "/blog" },
-    { name: "制作物", href: "/projects" },
-    { name: "AI", href: "/gallery" },
-    { name: "ツール", href: "/tools" },
-    { name: "プロフィール", href: "/about" },
+    { name: "Home", href: "/" },
+    { name: "Blog", href: "/blog" },
+    { name: "Projects", href: "/projects" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Tools", href: "/tools" },
+    { name: "About", href: "/about" },
   ];
 
   return (
