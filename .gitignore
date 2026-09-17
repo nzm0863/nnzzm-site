@@ -1,0 +1,46 @@
+# =========================
+# Next.js
+# =========================
+blog/node_modules/
+blog/.next/
+blog/out/
+
+# Vercel
+.vercel/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# =========================
+# Environment
+# =========================
+blog/.env.local
+blog/.env.development.local
+blog/.env.production.local
+blog/.env*.local
+
+# =========================
+# PHP (legacy)
+# =========================
+blog_php/vendor/
+blog_php/uploads/
+
+# =========================
+# Build / Logs
+# =========================
+coverage/
+dist/
+build/
+
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/settings.json
