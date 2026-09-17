@@ -1,26 +1,37 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <>
-      <header className="site-header">
-        <div className="container">
-          <h1 className="site-title">NNブログ</h1>
-        </div>
-      </header>
-
       <main>
         <section className="hero">
           <div className="container">
+            <Image
+              src="/images/profile/nnzzm-mascot.png"
+              alt="nnzzm mascot"
+              width={320}
+              height={320}
+              priority
+              className="hero-avatar"
+            />
             <h1 className="animate-fade-in-up">
-              静謐なる知の殿堂
+              IoT × Web × AI
             </h1>
-            <p className="animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-              深く、静かに、言葉と想いを紡ぐ場所
+
+            <p
+              className="animate-fade-in-up"
+              style={{ animationDelay: "0.3s" }}
+            >
+              ESP32・Raspberry Pi・React・AI開発をまとめた個人開発サイト
             </p>
-            <div className="animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+
+            <div
+              className="animate-fade-in-up"
+              style={{ animationDelay: "0.6s" }}
+            >
               <Link href="/blog" className="btn">
-                ブログ一覧へ
+                開発ブログを見る
               </Link>
             </div>
           </div>

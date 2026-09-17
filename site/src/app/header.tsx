@@ -4,15 +4,14 @@ import { usePathname } from "next/navigation";
 
 export default function Header() {
   const pathname = usePathname();
-  if (pathname === "/") return null;
 
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Blog", href: "/blog" },
-    { name: "Projects", href: "/projects" },
-    { name: "Gallery", href: "/gallery" },
-    { name: "Tools", href: "/tools" },
-    { name: "About", href: "/about" },
+    { name: "ホーム", href: "/" },
+    { name: "ブログ", href: "/blog" },
+    { name: "制作物", href: "/projects" },
+    { name: "AI", href: "/gallery" },
+    { name: "ツール", href: "/tools" },
+    { name: "プロフィール", href: "/about" },
   ];
 
   return (
@@ -22,12 +21,16 @@ export default function Header() {
           nnzzm.com
         </Link>
         <nav className="site-nav">
-          <Link href="/" className="nav-link">
-            トップ
-          </Link>
-          <Link href="/blog" className="nav-link">
-            ブログ
-          </Link>
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`nav-link ${pathname === item.href ? "nav-active" : ""
+                }`}
+            >
+              {item.name}
+            </Link>
+          ))}
         </nav>
       </div>
     </header>

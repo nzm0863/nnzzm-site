@@ -19,11 +19,29 @@ const notoSerifJP = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.nnzzm.com"),
+
   title: {
     default: "nnzzm.com",
     template: "%s | nnzzm.com",
   },
+
   description: "IoT・Web・AI開発をまとめたポートフォリオ・技術ブログサイト。",
+
+  openGraph: {
+    title: "nnzzm.com",
+    description: "IoT・Web・AI開発をまとめたポートフォリオ・技術ブログサイト。",
+    url: "https://www.nnzzm.com",
+    siteName: "nnzzm.com",
+    locale: "ja_JP",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "nnzzm.com",
+    description: "IoT・Web・AI開発をまとめたポートフォリオ・技術ブログサイト。",
+  },
 };
 
 export default function RootLayout({
