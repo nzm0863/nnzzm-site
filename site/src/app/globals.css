@@ -1089,3 +1089,57 @@ a {
   border-radius: 2px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+
+
+.page-hero {
+  padding: 4rem 0 2rem;
+}
+
+.page-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.page-hero p {
+  color: #94a3b8;
+}
+
+.projects-grid {
+  display: grid;
+  gap: 2rem;
+  padding-bottom: 4rem;
+}
+
+.project-card {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.project-card h2 {
+  margin-bottom: 0.75rem;
+}
+
+.project-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.tag {
+  padding: 0.3rem 0.7rem;
+  border-radius: 9999px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #7dd3fc;
+  font-size: 0.85rem;
+}
+
+.btn-outline {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: white;
+  text-decoration: none;
+}
