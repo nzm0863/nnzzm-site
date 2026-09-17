@@ -1,9 +1,9 @@
 # =========================
 # Next.js
 # =========================
-blog/node_modules/
-blog/.next/
-blog/out/
+site/node_modules/
+site/.next/
+site/out/
 
 # Vercel
 .vercel/
@@ -15,16 +15,16 @@ next-env.d.ts
 # =========================
 # Environment
 # =========================
-blog/.env.local
-blog/.env.development.local
-blog/.env.production.local
-blog/.env*.local
+site/.env.local
+site/.env.development.local
+site/.env.production.local
+site/.env*.local
 
 # =========================
 # PHP (legacy)
 # =========================
-blog_php/vendor/
-blog_php/uploads/
+legacy/vendor/
+legacy/uploads/
 
 # =========================
 # Build / Logs
