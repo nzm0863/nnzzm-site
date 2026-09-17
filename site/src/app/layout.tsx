@@ -6,21 +6,24 @@ import Footer from "./footer";
 import { Providers } from "./providers";
 import { Analytics } from "@vercel/analytics/next";
 
-const notoSansJP = Noto_Sans_JP({ 
+const notoSansJP = Noto_Sans_JP({
   weight: ["300", "400", "500"],
   variable: "--font-noto-sans",
   preload: false
 });
 
-const notoSerifJP = Noto_Serif_JP({ 
+const notoSerifJP = Noto_Serif_JP({
   weight: ["300", "400"],
   variable: "--font-noto-serif",
   preload: false
 });
 
 export const metadata: Metadata = {
-  title: "NNブログ",
-  description: "技術的な内容や個人的な考えを共有するブログ",
+  title: {
+    default: "nnzzm.com",
+    template: "%s | nnzzm.com",
+  },
+  description: "IoT・Web・AI開発をまとめたポートフォリオ・技術ブログサイト。",
 };
 
 export default function RootLayout({
