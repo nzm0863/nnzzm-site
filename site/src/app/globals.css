@@ -1247,3 +1247,74 @@ a {
   height: auto;
   border-radius: 12px;
 }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+}
+
+.lightbox-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.gallery-image {
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.02);
+}
+
+.close-btn {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+
+  font-size: 32px;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: white;
+
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.prev {
+  left: 24px;
+}
+
+.next {
+  right: 24px;
+}
+
+.counter {
+  position: absolute;
+  bottom: 24px;
+  color: white;
+  font-size: 14px;
+}
