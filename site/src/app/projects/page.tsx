@@ -1,7 +1,15 @@
+"use client";
+
+import { useState } from "react";
 import { projects } from "@/content/projects";
 import ProjectCard from "@/components/ProjectCard";
 
 export default function ProjectsPage() {
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+
+  const filteredProjects = selectedTag
+    ? projects.filter((p) => p.tags.includes(selectedTag))
+    : projects;
   return (
     <main className="container">
       <section className="page-hero">
@@ -14,6 +22,9 @@ export default function ProjectsPage() {
           <ProjectCard key={project.slug} project={project} />
         ))}
       </section>
+      <button onClick={() => setSelectedTag("ESP32")}>
+        ESP32
+      </button>
     </main>
   );
 }

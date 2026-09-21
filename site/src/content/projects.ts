@@ -10,7 +10,11 @@ export type Project = {
   demo?: string;
   period: string;
   content: string;
-  
+
+  gallery?: string[];
+  overview: string; // 一言紹介
+  features: string[]; // 特徴
+  techStack: string[]; // 技術一覧
 };
 export const projects: Project[] = [
   {
@@ -25,6 +29,26 @@ export const projects: Project[] = [
 
     period: "2025.05",
     content: `ESP32とゲームパッドで操作するメカナムロボット。`,
+    gallery: [
+      "/images/projects/ESP32Car.jpg",
+      "/images/projects/ESP32Car2.jpg",
+      "/images/projects/ESP32Car3.jpg",
+    ],
+    overview: "ESP32とゲームパッドで操作するメカナムロボット。",
+
+    features: [
+      "Xboxコントローラー操作",
+      "WebSocketリアルタイム通信",
+      "メカナムホイール全方向移動",
+    ],
+
+    techStack: [
+      "ESP32 DevKitC",
+      "Arduino IDE",
+      "React",
+      "TypeScript",
+      "WebSocket",
+    ],
   },
 
   {
@@ -39,5 +63,20 @@ export const projects: Project[] = [
 
     period: "2025.07",
     content: `AIを使った画像ぼかしツール。`,
+    overview: "ESP32とゲームパッドで操作するメカナムロボット。",
+
+    features: [
+      "Xboxコントローラー操作",
+      "WebSocketリアルタイム通信",
+      "メカナムホイール全方向移動",
+    ],
+
+    techStack: [
+      "ESP32 DevKitC",
+      "Arduino IDE",
+      "React",
+      "TypeScript",
+      "WebSocket",
+    ],
   },
 ];
