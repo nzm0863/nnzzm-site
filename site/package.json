@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "webp": "powershell -ExecutionPolicy Bypass -File ./convert-webp.ps1",
+    "gallery": "tsx ./scripts/generate-gallery.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
@@ -32,6 +34,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

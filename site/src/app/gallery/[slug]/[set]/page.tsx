@@ -74,6 +74,7 @@ export default function GallerySetPage({ params }: Props) {
             height={500}
             className="gallery-image"
             onClick={() => openImage(index)}
+            loading="lazy"
           />
         ))}
       </section>

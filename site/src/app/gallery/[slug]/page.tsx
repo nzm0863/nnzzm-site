@@ -24,7 +24,7 @@ export default async function GalleryDetailPage({ params }: Props) {
           key={set.slug}
           href={`/gallery/${gallery.slug}/${set.slug}`}
         >
-          <Image src={set.cover} alt={set.title} width={260} height={340} />
+          <Image src={set.cover} alt={set.title} width={260} height={340} loading="lazy"/>
           <h3>{set.title}</h3>
         </Link>
       ))}

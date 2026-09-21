@@ -44,3 +44,9 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 .vscode/settings.json
+
+# AI Gallery Images
+public/images/gallery/
+
+# （必要なら生成ファイルも）
+# src/content/gallery.ts
