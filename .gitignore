@@ -46,7 +46,8 @@ Thumbs.db
 .vscode/settings.json
 
 # AI Gallery Images
-public/images/gallery/
+site/public/images/gallery/**
+!site/public/images/gallery/**/cover.webp
 
 # （必要なら生成ファイルも）
 # src/content/gallery.ts
