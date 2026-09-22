@@ -10,12 +10,16 @@ const titleMap: Record<string, string> = {
   yami: "金色の闇",
   momo: "モモ・ベリア・デビルーク",
   mea: "黒咲芽亜",
+
+   // original
+  "game-charactor": "ゲームキャラクター",
 };
 
 const setTitleMap: Record<string, string> = {
   normal: "通常衣装",
   miko: "巫女",
   shower: "シャワー",
+  cheerleader: "チアリーダー",
 };
 
 const slugify = (category: string, character: string) =>
