@@ -1,19 +1,19 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { use, useState, useEffect } from "react";
 import { galleries } from "@/content/gallery";
 import Image from "next/image";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
     set: string;
-  };
+  }>;
 };
 
 export default function GallerySetPage({ params }: Props) {
 
-  const { slug, set } = params;
+  const { slug, set } = use(params);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
 

@@ -8,13 +8,16 @@ export default function GalleryPage() {
       <h1>AI Gallery</h1>
 
       <section className="gallery-grid">
-        {galleries
-          .filter((item) => item.sets.length > 0)
-          .map((item) => (
+        {galleries.map((item) => {
+          const thumbnailSet = item.sets.find((set) => set.images.length > 0);
+
+          if (!thumbnailSet) return null;
+
+          return (
             <Link href={`/gallery/${item.slug}`} key={item.slug}>
               <article className="gallery-card">
                 <Image
-                  src={item.sets[0].cover}
+                  src={thumbnailSet.cover}
                   alt={item.title}
                   width={320}
                   height={420}
@@ -23,9 +26,11 @@ export default function GalleryPage() {
 
                 <p>{item.category}</p>
                 <h2>{item.title}</h2>
+                <p>{thumbnailSet.images.length} 枚</p>
               </article>
             </Link>
-          ))}
+          );
+        })}
       </section>
     </main>
   );
