@@ -1,3 +1,13 @@
+export type BlogPost = {
+  slug: string;
+  title: string;
+  category: string;
+  date: string;
+  thumbnail: string;
+  description: string;
+  tags: string[];
+};
+
 export const posts = [
   {
     slug: "portfolio-renewal",

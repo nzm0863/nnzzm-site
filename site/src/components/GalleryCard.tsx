@@ -28,7 +28,9 @@ export default function GalleryCard({
           className="aspect-[3/4] w-full rounded-xl object-cover shadow-md transition duration-300 group-hover:scale-[1.02] group-hover:shadow-xl"
         />
 
-        <p className="mt-3 text-sm text-zinc-500">{category}</p>
+        <p className="inline-block rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-xs tracking-widest text-sky-400">
+          {category}
+        </p>
 
         <h2 className="mt-1 text-xl font-semibold transition-colors group-hover:text-sky-400">
           {title}
