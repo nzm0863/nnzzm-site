@@ -4,6 +4,7 @@ import { use, useEffect, useState } from "react";
 import { galleries } from "@/content/gallery";
 import Image from "next/image";
 import { useCallback } from "react";
+import Link from "next/link";
 
 type Props = {
   params: Promise<{
@@ -53,7 +54,7 @@ export default function GallerySetPage({ params }: Props) {
 
     window.addEventListener("keydown", handleKey);
 
-    
+
     const next = new window.Image();
     next.src =
       gallerySet.images[(selectedIndex + 1) % gallerySet.images.length];
@@ -78,6 +79,13 @@ export default function GallerySetPage({ params }: Props) {
         {gallery.title}
         <span className="text-white"> / {gallerySet.title}</span>
       </h1>
+
+      <Link
+        href={`/gallery/${gallery.slug}`}
+        className="mb-8 inline-flex items-center gap-2 text-zinc-400 hover:text-sky-400"
+      >
+        ← {gallery.title} に戻る
+      </Link>
 
       <section className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
         {gallerySet.images.map((image, index) => (
@@ -141,6 +149,9 @@ export default function GallerySetPage({ params }: Props) {
 
           <p className="absolute bottom-6 text-sm text-zinc-300">
             {selectedIndex + 1} / {gallerySet.images.length}
+          </p>
+          <p className="absolute bottom-14 text-xs text-zinc-500">
+            ← → キーで切替 / Escで閉じる
           </p>
         </div>
       )}

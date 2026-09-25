@@ -113,7 +113,8 @@ export const galleries: Gallery[] = [
           "/images/gallery/ToLOVE-ru/lala/cheerleader/00070.webp",
           "/images/gallery/ToLOVE-ru/lala/cheerleader/00071.webp",
           "/images/gallery/ToLOVE-ru/lala/cheerleader/00072.webp",
-          "/images/gallery/ToLOVE-ru/lala/cheerleader/00213.webp"
+          "/images/gallery/ToLOVE-ru/lala/cheerleader/00213.webp",
+          "/images/gallery/ToLOVE-ru/lala/cheerleader/default-cover.webp"
         ]
       },
       {
