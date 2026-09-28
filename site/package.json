@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "webp": "powershell -ExecutionPolicy Bypass -File ./convert-webp.ps1",
+    "webp": "powershell -ExecutionPolicy Bypass -File ./scripts/convert-webp.ps1",
     "gallery": "tsx ./scripts/generate-gallery.ts",
     "gallery-dev": "npm run webp && npm run gallery && npm run dev"
   },

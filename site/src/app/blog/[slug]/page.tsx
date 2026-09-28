@@ -2,6 +2,33 @@ import { posts } from "@/content/blog";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+type MetadataProps = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
+
+export async function generateMetadata(
+  { params }: MetadataProps
+): Promise<Metadata> {
+  const { slug } = await params;
+  const post = posts.find((p) => p.slug === slug);
+
+  if (!post) return {};
+
+  return {
+    title: post.title,
+    description: post.description,
+    openGraph: {
+      images: [post.thumbnail], // ← thumbnailじゃなくimage
+    },
+    twitter: {
+      images: [post.thumbnail],
+    },
+  };
+}
 
 type Props = {
   params: Promise<{

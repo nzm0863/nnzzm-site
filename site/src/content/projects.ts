@@ -63,7 +63,7 @@ export const projects: Project[] = [
     slug: "ai-auto-blur",
     title: "AI Auto Blur",
     description: "AIを使った画像ぼかしツール。",
-    thumbnail: "/images/projects/AI_auto_blur.png",
+    thumbnail: "/images/projects/AI_auto_blur.webp",
     tags: ["Electron", "Python", "AI"],
 
     github: "https://github.com/nzm0863/AI_auto_blur",

@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <main className="relative overflow-hidden">
-      <section className="relative flex min-h-[85vh] items-center justify-center px-6">
+      <section className="relative flex min-h-[68vh] items-center justify-center px-6">
 
         {/* 背景グラデーション */}
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.12),transparent_60%)]" />
@@ -12,7 +12,7 @@ export default function Hero() {
         <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
           <div className="rounded-full bg-pink-500/10 p-2 shadow-[0_0_80px_rgba(236,72,153,0.35)]">
             <Image
-              src="/images/profile/nnzzm-mascot.png"
+              src="/images/profile/nnzzm-mascot.webp"
               alt="nnzzm mascot"
               width={220}
               height={220}

@@ -5,6 +5,13 @@ import { FaGithub, FaYoutube, FaXTwitter, FaDiscord } from "react-icons/fa6";
 import { TbWorld } from "react-icons/tb";
 import { SiPixiv, SiNiconico } from "react-icons/si";
 import { profile } from "@/content/profile";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | nnzzm.com",
+  description:
+    "ESP32・Raspberry Pi・Next.jsを中心にIoT・Web・AIの個人開発をしているNakamura / nnzzmのプロフィール。",
+};
 
 export default function AboutPage() {
   const iconMap = {
@@ -24,7 +31,7 @@ export default function AboutPage() {
 
         <div className="rounded-full bg-pink-500/10 p-2 shadow-[0_0_80px_rgba(236,72,153,0.35)]">
           <Image
-            src="/images/profile/nnzzm-mascot.png"
+            src="/images/profile/nnzzm-mascot.webp"
             alt="nnzzm mascot"
             width={150}
             height={150}

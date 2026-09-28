@@ -2,15 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { tools } from "@/content/tools";
 import { FaGithub, FaYoutube } from "react-icons/fa";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | nnzzm.com",
+  description:
+    "ESP32・Raspberry Pi・Next.jsを中心にIoT・Web・AIの個人開発をしているNakamura / nnzzmのプロフィール。",
+};
 
 export default function ToolsPage() {
   return (
-    <main className="mx-auto max-w-6xl px-6 py-16">
+    <main className="mx-auto max-w-7xl px-6 py-16">
       {/* Hero */}
       <section className="space-y-4">
         <h1 className="text-5xl font-serif tracking-wide">Tools</h1>
 
-        <p className="max-w-2xl text-lg leading-8 text-zinc-300">
+        <p className="max-w-3xl text-lg leading-8 text-zinc-300">
           IoT・Web・AI開発で実際に作った便利ツールやテンプレートを公開しています。
         </p>
       </section>

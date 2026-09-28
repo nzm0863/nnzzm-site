@@ -5,6 +5,41 @@ import { galleries } from "@/content/gallery";
 import Image from "next/image";
 import { useCallback } from "react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+type MetadataProps = {
+  params: Promise<{
+    slug: string;
+    set: string;
+  }>;
+};
+
+export async function generateMetadata({
+  params,
+}: MetadataProps): Promise<Metadata> {
+  const { slug, set } = await params;
+
+  const gallery = galleries.find((g) => g.slug === slug);
+  const gallerySet = gallery?.sets.find((s) => s.slug === set);
+
+  if (!gallery || !gallerySet) return {};
+
+  const title = `${gallery.title} - ${gallerySet.title}`;
+
+  return {
+    title,
+    description: `${gallery.title}「${gallerySet.title}」のAIイラストギャラリー。`,
+    openGraph: {
+      title,
+      description: `${gallery.title}「${gallerySet.title}」のAIイラストギャラリー。`,
+      images: [gallerySet.cover],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [gallerySet.cover],
+    },
+  };
+}
 
 type Props = {
   params: Promise<{

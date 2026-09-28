@@ -1,9 +1,35 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { FaGithub, FaYoutube } from "react-icons/fa";
-
-import { projects } from "@/content/projects";
 import ProjectGallery from "@/components/ProjectGallery";
+import type { Metadata } from "next";
+import { projects } from "@/content/projects";
+
+type MetadataProps = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
+
+export async function generateMetadata(
+  { params }: MetadataProps
+): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+
+  if (!project) return {};
+
+  return {
+    title: project.title,
+    description: project.description,
+    openGraph: {
+      images: [project.thumbnail],
+    },
+    twitter: {
+      images: [project.thumbnail],
+    },
+  };
+}
 
 type Props = {
   params: Promise<{ slug: string }>;

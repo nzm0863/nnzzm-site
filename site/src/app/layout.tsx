@@ -6,6 +6,83 @@ import Footer from "@/components/Footer";
 import { Providers } from "./providers";
 import { Analytics } from "@vercel/analytics/next";
 
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.nnzzm.com"),
+
+  title: {
+    default: "nnzzm.com | IoT × Web × AI Portfolio",
+    template: "%s | nnzzm.com",
+  },
+
+  description:
+    "ESP32・Raspberry Pi・Next.jsを中心にしたIoT・Web・AIの個人開発ポートフォリオ。",
+
+  keywords: [
+    "ESP32",
+    "Raspberry Pi",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "IoT",
+    "Web開発",
+    "AI開発",
+    "個人開発",
+    "ポートフォリオ",
+    "浜松",
+  ],
+
+  authors: [{ name: "Nakamura" }],
+  creator: "Nakamura",
+  publisher: "nnzzm.com",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+
+  openGraph: {
+    title: "nnzzm.com | IoT × Web × AI Portfolio",
+    description:
+      "ESP32・Raspberry Pi・Next.jsを中心にしたIoT・Web・AIの個人開発ポートフォリオ。",
+    url: "/",
+    siteName: "nnzzm.com",
+    locale: "ja_JP",
+    type: "website",
+    images: [
+      {
+        url: "/ogp-home.webp",
+        width: 1200,
+        height: 630,
+        alt: "nnzzm.com | IoT × Web × AI Portfolio",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "nnzzm.com | IoT × Web × AI Portfolio",
+    description:
+      "ESP32・Raspberry Pi・Next.jsを中心にしたIoT・Web・AIの個人開発ポートフォリオ。",
+    creator: "@nzm0863",
+    images: ["/ogp-home.webp"],
+  },
+};
 
 const notoSansJP = Noto_Sans_JP({
   weight: ["300", "400", "500"],
@@ -17,42 +94,35 @@ const notoSerifJP = Noto_Serif_JP({
   variable: "--font-noto-serif",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://www.nnzzm.com"),
-
-  title: {
-    default: "nnzzm.com",
-    template: "%s | nnzzm.com",
-  },
-
-  description: "IoT・Web・AI開発をまとめたポートフォリオ・技術ブログサイト。",
-
-  openGraph: {
-    title: "nnzzm.com",
-    description: "IoT・Web・AI開発をまとめたポートフォリオ・技術ブログサイト。",
-    url: "https://www.nnzzm.com",
-    siteName: "nnzzm.com",
-    locale: "ja_JP",
-    type: "website",
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "nnzzm.com",
-    description: "IoT・Web・AI開発をまとめたポートフォリオ・技術ブログサイト。",
-  },
-};
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Nakamura",
+    url: "https://www.nnzzm.com",
+    jobTitle: "IoT / Web Developer",
+    sameAs: [
+      "https://github.com/nzm0863",
+      "https://x.com/nzm0863",
+      "https://www.youtube.com/@nakamura-nnzzm",
+    ],
+  };
+
   return (
     <html lang="ja">
       <body
         className={`${notoSansJP.variable} ${notoSerifJP.variable} bg-[#1a1d21] text-[#e1e2e3] antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd),
+          }}
+        />
         <Providers>
           <Header />
           {children}

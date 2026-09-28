@@ -1,6 +1,32 @@
 import { galleries } from "@/content/gallery";
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+type MetadataProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({
+  params,
+}: MetadataProps): Promise<Metadata> {
+  const { slug } = await params;
+
+  const gallery = galleries.find((g) => g.slug === slug);
+  if (!gallery) return {};
+
+  return {
+    title: gallery.title,
+    description: `${gallery.title} のAIイラストギャラリー。`,
+    openGraph: {
+      images: [gallery.sets[0].cover],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [gallery.sets[0].cover],
+    },
+  };
+}
 
 type Props = {
   params: Promise<{

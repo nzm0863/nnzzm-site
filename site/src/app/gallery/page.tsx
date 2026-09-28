@@ -1,5 +1,14 @@
 import { galleries } from "@/content/gallery";
 import GalleryCard from "@/components/GalleryCard";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Gallery",
+  description: "AIイラストギャラリー一覧。",
+  openGraph: {
+    images: ["/images/og/gallery-og.webp"],
+  },
+};
 
 export default function GalleryPage() {
   return (
