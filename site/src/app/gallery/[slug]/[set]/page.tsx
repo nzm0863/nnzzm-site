@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { galleries } from "@/content/gallery";
 import GallerySetClient from "./GallerySetClient";
+import R18Warning from "@/components/R18Warning";
 
 type Props = {
   params: Promise<{
@@ -13,7 +14,7 @@ export async function generateMetadata({
   params,
 }: Props): Promise<Metadata> {
   // app/gallery/[slug]/page.tsx
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
   const { slug, set } = await params;
 
   const gallery = galleries.find((g) => g.slug === slug);
@@ -27,6 +28,8 @@ export async function generateMetadata({
   }
 
   const title = `${gallery.title} / ${gallerySet.title}`;
+
+
 
   return {
     title,
@@ -68,6 +71,18 @@ export default async function Page({ params }: Props) {
   if (!gallery || !gallerySet) {
     return <h1>404</h1>;
   }
+
+  if (gallerySet.isR18) {
+    return (
+      <R18Warning>
+        <GallerySetClient
+          gallery={gallery}
+          gallerySet={gallerySet}
+        />
+      </R18Warning>
+    );
+  }
+
 
   return <GallerySetClient gallery={gallery} gallerySet={gallerySet} />;
 }

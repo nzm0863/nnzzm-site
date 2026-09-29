@@ -88,11 +88,13 @@ export const metadata: Metadata = {
 const notoSansJP = Noto_Sans_JP({
   weight: ["300", "400", "500"],
   variable: "--font-noto-sans",
+  preload: false,
 });
 
 const notoSerifJP = Noto_Serif_JP({
   weight: ["300", "400"],
   variable: "--font-noto-serif",
+  preload: false,
 });
 
 export default function RootLayout({
@@ -116,7 +118,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${notoSansJP.variable} ${notoSerifJP.variable} bg-[#1a1d21] text-[#e1e2e3] antialiased`}
+        className={`${notoSansJP.variable} ${notoSerifJP.variable} bg-[#1a1d21] text-[#e1e2e3] antialiased min-h-screen flex flex-col`}
       >
         <script
           type="application/ld+json"
@@ -126,7 +128,9 @@ export default function RootLayout({
         />
         {/* <BootScreen /> */}
         <Header />
-        {children}
+        <main className="flex-1">
+          {children}
+        </main>
         <Footer />
         <Analytics />
 

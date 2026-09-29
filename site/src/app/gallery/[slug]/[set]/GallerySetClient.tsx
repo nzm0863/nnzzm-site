@@ -15,7 +15,7 @@ export default function GallerySetClient({
   gallery,
   gallerySet,
 }: Props) {
-  
+
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const openImage = (index: number) => setSelectedIndex(index);
@@ -67,8 +67,6 @@ export default function GallerySetClient({
   if (!gallery || !gallerySet) {
     return <h1>404</h1>;
   }
-
-
 
   return (
 

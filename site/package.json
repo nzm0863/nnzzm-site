@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack -p 3500",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3500",
     "lint": "next lint",
     "webp": "powershell -ExecutionPolicy Bypass -File ./scripts/convert-webp.ps1",
     "gallery": "tsx ./scripts/generate-gallery.ts",

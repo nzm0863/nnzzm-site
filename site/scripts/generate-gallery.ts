@@ -6,12 +6,11 @@ const outputFile = path.join(process.cwd(), "src", "content", "gallery.ts");
 
 const titleMap: Record<string, string> = {
   lala: "ララ・サタリン・デビルーク",
-  mikan: "結城美柑",
   yami: "金色の闇",
   momo: "モモ・ベリア・デビルーク",
   mea: "黒咲芽亜",
-
-   // original
+  mikan: "結城美柑",
+  // original
   "game-charactor": "ゲームキャラクター",
 };
 
@@ -20,7 +19,9 @@ const setTitleMap: Record<string, string> = {
   miko: "巫女",
   shower: "シャワー",
   cheerleader: "チアリーダー",
+  r18_shower:"シャワー",
 };
+
 
 const slugify = (category: string, character: string) =>
   `${category.toLowerCase()}-${character}`;
@@ -39,9 +40,7 @@ const galleries = categories.flatMap((category) => {
 
     const sets = fs
       .readdirSync(characterPath)
-      .filter((set) =>
-        fs.statSync(path.join(characterPath, set)).isDirectory()
-      )
+      .filter((set) => fs.statSync(path.join(characterPath, set)).isDirectory())
       .map((set) => {
         const setPath = path.join(characterPath, set);
 
@@ -56,8 +55,9 @@ const galleries = categories.flatMap((category) => {
           cover: `/images/gallery/${category}/${character}/${set}/cover.webp`,
           images: images.map(
             (image) =>
-              `/images/gallery/${category}/${character}/${set}/${image}`
+              `/images/gallery/${category}/${character}/${set}/${image}`,
           ),
+          isR18: set.toLowerCase().startsWith("r18_"),
         };
       });
 
@@ -77,6 +77,7 @@ export type GallerySet = {
   title: string;
   cover: string;
   images: string[];
+  isR18: boolean;
 };
 
 export type Gallery = {

@@ -81,18 +81,27 @@ export default async function GalleryDetailPage({ params }: Props) {
               className="group block"
             >
               <article>
-                <Image
-                  src={set.cover}
-                  alt={set.title}
-                  width={320}
-                  height={420}
-                  loading="lazy"
-                  className="aspect-[3/4] w-full rounded-xl object-cover transition duration-300 group-hover:scale-[1.02]"
-                />
+                <div className="relative">
+                  <Image
+                    src={set.cover}
+                    alt={set.title}
+                    width={320}
+                    height={420}
+                    loading="lazy"
+                    className="aspect-[3/4] w-full rounded-xl object-cover transition duration-300 group-hover:scale-[1.02]"
+                  />
+
+                  {set.isR18 && (
+                    <span className="absolute top-3 right-3 rounded-md border-3 border-zinc-800 bg-red-600 px-2 py-1 text-xs font-bold text-white">
+                      R18
+                    </span>
+                  )}
+                </div>
 
                 <h3 className="mt-3 text-lg font-semibold text-white group-hover:text-sky-400">
                   {set.title}
                 </h3>
+
 
                 <p className="text-sm text-zinc-500">
                   {set.images.length} 枚

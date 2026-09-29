@@ -5,6 +5,7 @@ export type GallerySet = {
   title: string;
   cover: string;
   images: string[];
+  isR18: boolean;
 };
 
 export type Gallery = {
@@ -29,7 +30,8 @@ export const galleries: Gallery[] = [
           "/images/gallery/original/game-charactor/normal/ComfyUI_06934_.webp",
           "/images/gallery/original/game-charactor/normal/ComfyUI_07315_.webp",
           "/images/gallery/original/game-charactor/normal/ComfyUI_07350_.webp"
-        ]
+        ],
+        "isR18": false
       }
     ]
   },
@@ -113,9 +115,9 @@ export const galleries: Gallery[] = [
           "/images/gallery/ToLOVE-ru/lala/cheerleader/00070.webp",
           "/images/gallery/ToLOVE-ru/lala/cheerleader/00071.webp",
           "/images/gallery/ToLOVE-ru/lala/cheerleader/00072.webp",
-          "/images/gallery/ToLOVE-ru/lala/cheerleader/00213.webp",
-          "/images/gallery/ToLOVE-ru/lala/cheerleader/default-cover.webp"
-        ]
+          "/images/gallery/ToLOVE-ru/lala/cheerleader/00213.webp"
+        ],
+        "isR18": false
       },
       {
         "slug": "miko",
@@ -124,9 +126,19 @@ export const galleries: Gallery[] = [
         "images": [
           "/images/gallery/ToLOVE-ru/lala/miko/ComfyUI_11869_.webp",
           "/images/gallery/ToLOVE-ru/lala/miko/ComfyUI_11895_.webp",
-          "/images/gallery/ToLOVE-ru/lala/miko/ComfyUI_11897_.webp",
-          "/images/gallery/ToLOVE-ru/lala/miko/cover copy.webp"
-        ]
+          "/images/gallery/ToLOVE-ru/lala/miko/ComfyUI_11897_.webp"
+        ],
+        "isR18": false
+      },
+      {
+        "slug": "r18_shower",
+        "title": "シャワー",
+        "cover": "/images/gallery/ToLOVE-ru/lala/r18_shower/cover.webp",
+        "images": [
+          "/images/gallery/ToLOVE-ru/lala/r18_shower/ComfyUI_20908_.webp",
+          "/images/gallery/ToLOVE-ru/lala/r18_shower/ComfyUI_20909_ copy.webp"
+        ],
+        "isR18": true
       },
       {
         "slug": "shower",
@@ -134,7 +146,8 @@ export const galleries: Gallery[] = [
         "cover": "/images/gallery/ToLOVE-ru/lala/shower/cover.webp",
         "images": [
           "/images/gallery/ToLOVE-ru/lala/shower/ComfyUI_20915_.webp"
-        ]
+        ],
+        "isR18": false
       }
     ]
   },
@@ -152,7 +165,8 @@ export const galleries: Gallery[] = [
           "/images/gallery/ToLOVE-ru/mea/beach/ComfyUI_09379_.webp",
           "/images/gallery/ToLOVE-ru/mea/beach/ComfyUI_09389_.webp",
           "/images/gallery/ToLOVE-ru/mea/beach/ComfyUI_09390_.webp"
-        ]
+        ],
+        "isR18": false
       }
     ]
   },
@@ -170,7 +184,8 @@ export const galleries: Gallery[] = [
           "/images/gallery/ToLOVE-ru/mikan/date/ComfyUI_01319_.webp",
           "/images/gallery/ToLOVE-ru/mikan/date/ComfyUI_01342_.webp",
           "/images/gallery/ToLOVE-ru/mikan/date/ComfyUI_01382_.webp"
-        ]
+        ],
+        "isR18": false
       }
     ]
   },
@@ -188,7 +203,8 @@ export const galleries: Gallery[] = [
           "/images/gallery/ToLOVE-ru/momo/pajamas/ComfyUI_23913_.webp",
           "/images/gallery/ToLOVE-ru/momo/pajamas/ComfyUI_23926_.webp",
           "/images/gallery/ToLOVE-ru/momo/pajamas/ComfyUI_23955_.webp"
-        ]
+        ],
+        "isR18": false
       }
     ]
   },
@@ -206,7 +222,8 @@ export const galleries: Gallery[] = [
           "/images/gallery/ToLOVE-ru/yami/forest/ComfyUI_16723_.webp",
           "/images/gallery/ToLOVE-ru/yami/forest/ComfyUI_16726_.webp",
           "/images/gallery/ToLOVE-ru/yami/forest/ComfyUI_16731_.webp"
-        ]
+        ],
+        "isR18": false
       }
     ]
   }
