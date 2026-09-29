@@ -5,9 +5,21 @@ import { FaGithub, FaYoutube } from "react-icons/fa";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About | nnzzm.com",
+  title: "Tools",
   description:
-    "ESP32・Raspberry Pi・Next.jsを中心にIoT・Web・AIの個人開発をしているNakamura / nnzzmのプロフィール。",
+    "AI Auto Blurをはじめとした個人開発ツール一覧。Python・YOLO・画像処理・Webツールを公開しています。",
+
+  alternates: {
+    canonical: "/tools",
+  },
+
+  openGraph: {
+    title: "Tools | nnzzm.com",
+    description:
+      "AI・画像処理・Web開発の個人開発ツール一覧。",
+    url: "/tools",
+    images: ["/ogp-home.webp"],
+  },
 };
 
 export default function ToolsPage() {

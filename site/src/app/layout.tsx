@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
-import "./globals.css";
+import "./globals.css"
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Providers } from "./providers";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
@@ -50,6 +49,8 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+
+
 
   icons: {
     icon: "/favicon.ico",
@@ -123,12 +124,12 @@ export default function RootLayout({
             __html: JSON.stringify(personJsonLd),
           }}
         />
-        <Providers>
-          <Header />
-          {children}
-          <Footer />
-          <Analytics />
-        </Providers>
+        {/* <BootScreen /> */}
+        <Header />
+        {children}
+        <Footer />
+        <Analytics />
+
       </body>
     </html>
   );

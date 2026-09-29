@@ -8,9 +8,21 @@ import { profile } from "@/content/profile";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About | nnzzm.com",
+  title: "About",
   description:
-    "ESP32・Raspberry Pi・Next.jsを中心にIoT・Web・AIの個人開発をしているNakamura / nnzzmのプロフィール。",
+    "Nakamura（nnzzm）のプロフィール。ESP32・Raspberry Pi・Next.js・TypeScriptを使ったIoT・Web・AI開発、GitHub・YouTubeでの発信活動を紹介します。",
+
+  alternates: {
+    canonical: "/about",
+  },
+
+  openGraph: {
+    title: "About | nnzzm.com",
+    description:
+      "IoT・Web・AI開発者 Nakamura（nnzzm）のプロフィール。",
+    url: "/about",
+    images: ["/ogp-home.webp"],
+  },
 };
 
 export default function AboutPage() {

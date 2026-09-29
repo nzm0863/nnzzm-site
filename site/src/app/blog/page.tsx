@@ -3,9 +3,21 @@ import { posts } from "@/content/blog";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About | nnzzm.com",
+  title: "Blog",
   description:
-    "ESP32・Raspberry Pi・Next.jsを中心にIoT・Web・AIの個人開発をしているNakamura / nnzzmのプロフィール。",
+    "ESP32・Raspberry Pi・Next.js・React・TypeScript・AI開発に関する技術ブログ。電子工作や個人開発の学習記録を掲載しています。",
+
+  alternates: {
+    canonical: "/blog",
+  },
+
+  openGraph: {
+    title: "Blog | nnzzm.com",
+    description:
+      "IoT・Web・AI開発に関する技術ブログ。",
+    url: "/blog",
+    images: ["/ogp-home.webp"],
+  },
 };
 
 export default function BlogPage() {

@@ -1,45 +1,6 @@
-"use client";
-
-import { use, useEffect, useState } from "react";
-import { galleries } from "@/content/gallery";
-import Image from "next/image";
-import { useCallback } from "react";
-import Link from "next/link";
 import type { Metadata } from "next";
-
-type MetadataProps = {
-  params: Promise<{
-    slug: string;
-    set: string;
-  }>;
-};
-
-export async function generateMetadata({
-  params,
-}: MetadataProps): Promise<Metadata> {
-  const { slug, set } = await params;
-
-  const gallery = galleries.find((g) => g.slug === slug);
-  const gallerySet = gallery?.sets.find((s) => s.slug === set);
-
-  if (!gallery || !gallerySet) return {};
-
-  const title = `${gallery.title} - ${gallerySet.title}`;
-
-  return {
-    title,
-    description: `${gallery.title}「${gallerySet.title}」のAIイラストギャラリー。`,
-    openGraph: {
-      title,
-      description: `${gallery.title}「${gallerySet.title}」のAIイラストギャラリー。`,
-      images: [gallerySet.cover],
-    },
-    twitter: {
-      card: "summary_large_image",
-      images: [gallerySet.cover],
-    },
-  };
-}
+import { galleries } from "@/content/gallery";
+import GallerySetClient from "./GallerySetClient";
 
 type Props = {
   params: Promise<{
@@ -48,148 +9,65 @@ type Props = {
   }>;
 };
 
-export default function GallerySetPage({ params }: Props) {
-  const { slug, set } = use(params);
-
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+export async function generateMetadata({
+  params,
+}: Props): Promise<Metadata> {
+  // app/gallery/[slug]/page.tsx
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  const { slug, set } = await params;
 
   const gallery = galleries.find((g) => g.slug === slug);
   const gallerySet = gallery?.sets.find((s) => s.slug === set);
 
-  const openImage = (index: number) => setSelectedIndex(index);
-  const closeImage = () => setSelectedIndex(null);
-
-  const nextImage = useCallback(() => {
-    if (!gallerySet) return;
-
-    setSelectedIndex((prev) =>
-      prev === null ? 0 : (prev + 1) % gallerySet.images.length
-    );
-  }, [gallerySet]);
-
-  const prevImage = useCallback(() => {
-    if (!gallerySet) return;
-
-    setSelectedIndex((prev) =>
-      prev === null
-        ? 0
-        : (prev - 1 + gallerySet.images.length) % gallerySet.images.length
-    );
-  }, [gallerySet]);
-
-
-  useEffect(() => {
-    if (selectedIndex === null || !gallerySet) return;
-
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeImage();
-      if (e.key === "ArrowRight") nextImage();
-      if (e.key === "ArrowLeft") prevImage();
+  if (!gallery || !gallerySet) {
+    return {
+      title: "Gallery Not Found",
+      description: "ギャラリーが見つかりませんでした。",
     };
+  }
 
-    window.addEventListener("keydown", handleKey);
+  const title = `${gallery.title} / ${gallerySet.title}`;
 
+  return {
+    title,
+    description: `${gallery.title}「${gallerySet.title}」のAIイラストギャラリー。`,
 
-    const next = new window.Image();
-    next.src =
-      gallerySet.images[(selectedIndex + 1) % gallerySet.images.length];
+    alternates: {
+      canonical: `/gallery/${slug}/${set}`,
+    },
 
-    const prev = new window.Image();
-    prev.src =
-      gallerySet.images[
-      (selectedIndex - 1 + gallerySet.images.length) %
-      gallerySet.images.length
-      ];
+    openGraph: {
+      title: `${title} | nnzzm.com`,
+      description: `${gallery.title}「${gallerySet.title}」のAIイラストギャラリー。`,
+      url: `/gallery/${slug}/${set}`,
+      images: [
+        {
+          url: gallerySet.cover,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
 
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [selectedIndex, gallerySet, nextImage, prevImage]);
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | nnzzm.com`,
+      description: `${gallery.title}「${gallerySet.title}」のAIイラストギャラリー。`,
+      images: [gallerySet.cover],
+    },
+  };
+}
+
+export default async function Page({ params }: Props) {
+  const { slug, set } = await params;
+
+  const gallery = galleries.find((g) => g.slug === slug);
+  const gallerySet = gallery?.sets.find((s) => s.slug === set);
 
   if (!gallery || !gallerySet) {
     return <h1>404</h1>;
   }
 
-  return (
-    <main className="mx-auto max-w-7xl px-6 py-12">
-      <h1 className="mb-10 text-4xl font-bold text-white">
-        {gallery.title}
-        <span className="text-white"> / {gallerySet.title}</span>
-      </h1>
-
-      <Link
-        href={`/gallery/${gallery.slug}`}
-        className="mb-8 inline-flex items-center gap-2 text-zinc-400 hover:text-sky-400"
-      >
-        ← {gallery.title} に戻る
-      </Link>
-
-      <section className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-        {gallerySet.images.map((image, index) => (
-          <Image
-            key={image}
-            src={image}
-            alt={gallerySet.title}
-            width={350}
-            height={500}
-            loading="lazy"
-            onClick={() => openImage(index)}
-            className="aspect-[3/4] w-full cursor-zoom-in rounded-xl object-cover transition duration-200 hover:scale-[1.02]"
-          />
-        ))}
-      </section>
-
-      {selectedIndex !== null && (
-        <div
-          onClick={closeImage}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
-        >
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              closeImage();
-            }}
-            className="absolute top-6 right-6 text-3xl text-white hover:text-sky-400"
-          >
-            ✕
-          </button>
-
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              prevImage();
-            }}
-            className="absolute left-4 rounded-full bg-white/10 p-4 text-3xl text-white backdrop-blur hover:bg-white/20"
-          >
-            ❮
-          </button>
-
-          <Image
-            src={gallerySet.images[selectedIndex]}
-            alt={gallerySet.title}
-            width={1200}
-            height={1800}
-            sizes="90vw"
-            onClick={(e) => e.stopPropagation()}
-            className="max-h-[90vh] w-auto rounded-xl object-contain"
-          />
-
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              nextImage();
-            }}
-            className="absolute right-4 rounded-full bg-white/10 p-4 text-3xl text-white backdrop-blur hover:bg-white/20"
-          >
-            ❯
-          </button>
-
-          <p className="absolute bottom-6 text-sm text-zinc-300">
-            {selectedIndex + 1} / {gallerySet.images.length}
-          </p>
-          <p className="absolute bottom-14 text-xs text-zinc-500">
-            ← → キーで切替 / Escで閉じる
-          </p>
-        </div>
-      )}
-    </main>
-  );
+  return <GallerySetClient gallery={gallery} gallerySet={gallerySet} />;
 }

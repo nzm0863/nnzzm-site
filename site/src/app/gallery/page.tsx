@@ -4,9 +4,19 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Gallery",
-  description: "AIイラストギャラリー一覧。",
+  description:
+    "AIイラスト・アニメアート・制作ギャラリー。個人制作作品やポートフォリオ用イラストを掲載しています。",
+
+  alternates: {
+    canonical: "/gallery",
+  },
+
   openGraph: {
-    images: ["/images/og/gallery-og.webp"],
+    title: "Gallery | nnzzm.com",
+    description:
+      "AIイラスト・アニメアート・制作ギャラリー。",
+    url: "/gallery",
+    images: ["/ogp-home.webp"],
   },
 };
 

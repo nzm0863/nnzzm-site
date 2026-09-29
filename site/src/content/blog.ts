@@ -5,6 +5,7 @@ export type BlogPost = {
   date: string;
   thumbnail: string;
   description: string;
+  seoDescription?: string;
   tags: string[];
   content: string[];
 };
@@ -16,13 +17,15 @@ export const posts = [
     category: "Next.js",
     date: "2026-09-23",
     thumbnail: "/images/blog/default-cover.webp",
-    description: "CSSからTailwindへ移行し、GalleryやHeaderもリファクタリングしました。",
+    description:
+      "CSSからTailwindへ移行し、GalleryやHeaderもリファクタリングしました。",
+    seoDescription:
+      "Next.jsとTailwind CSSを使ってポートフォリオサイトをリニューアルした手順やコンポーネント設計、Gallery・Headerのリファクタリングについて紹介します。",
     tags: ["Next.js", "Tailwind", "Portfolio"],
     content: [
       "今回はポートフォリオをTailwindへ移行しました。",
       "HeaderとFooterもコンポーネント化しました。",
-      "Galleryはcontentフォルダからデータを読み込む構成に変更しました。"
-    ]
+      "Galleryはcontentフォルダからデータを読み込む構成に変更しました。",
+    ],
   },
-  
 ];

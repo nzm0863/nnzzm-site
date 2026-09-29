@@ -2,38 +2,55 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { FaGithub, FaYoutube } from "react-icons/fa";
 import ProjectGallery from "@/components/ProjectGallery";
+
 import type { Metadata } from "next";
 import { projects } from "@/content/projects";
-
-type MetadataProps = {
-  params: Promise<{
-    slug: string;
-  }>;
-};
-
-export async function generateMetadata(
-  { params }: MetadataProps
-): Promise<Metadata> {
-  const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
-
-  if (!project) return {};
-
-  return {
-    title: project.title,
-    description: project.description,
-    openGraph: {
-      images: [project.thumbnail],
-    },
-    twitter: {
-      images: [project.thumbnail],
-    },
-  };
-}
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+      description: "指定されたプロジェクトは見つかりませんでした。",
+    };
+  }
+
+  return {
+    title: project.title,
+    description: project.seoDescription ?? project.description,
+
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
+
+    openGraph: {
+      title: `${project.title} | nnzzm.com`,
+      description: project.seoDescription ?? project.description,
+      url: `/projects/${slug}`,
+      images: [
+        {
+          url: project.ogImage ?? project.thumbnail,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | nnzzm.com`,
+      description: project.seoDescription ?? project.description,
+      images: [project.ogImage ?? project.thumbnail],
+    },
+  };
+}
 
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;

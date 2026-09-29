@@ -1,38 +1,60 @@
-import { galleries } from "@/content/gallery";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { galleries } from "@/content/gallery";
 
-type MetadataProps = {
+type Props = {
   params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({
   params,
-}: MetadataProps): Promise<Metadata> {
+}: Props): Promise<Metadata> {
   const { slug } = await params;
 
   const gallery = galleries.find((g) => g.slug === slug);
-  if (!gallery) return {};
+
+  if (!gallery) {
+    return {
+      title: "Gallery Not Found",
+      description: "ギャラリーが見つかりませんでした。",
+    };
+  }
+
+  const cover = gallery.sets[0]?.cover ?? "/ogp-home.webp";
 
   return {
     title: gallery.title,
-    description: `${gallery.title} のAIイラストギャラリー。`,
-    openGraph: {
-      images: [gallery.sets[0].cover],
+    description: `${gallery.title} のAIイラストギャラリー。${gallery.category}カテゴリの作品を掲載しています。`,
+
+    alternates: {
+      canonical: `/gallery/${slug}`,
     },
+
+    openGraph: {
+      title: `${gallery.title} | nnzzm.com`,
+      description: `${gallery.title} のAIイラストギャラリー。`,
+      url: `/gallery/${slug}`,
+      type: "website",
+      images: [
+        {
+          url: cover,
+          width: 1200,
+          height: 630,
+          alt: gallery.title,
+        },
+      ],
+    },
+
     twitter: {
       card: "summary_large_image",
-      images: [gallery.sets[0].cover],
+      title: `${gallery.title} | nnzzm.com`,
+      description: `${gallery.title} のAIイラストギャラリー。`,
+      images: [cover],
     },
   };
 }
 
-type Props = {
-  params: Promise<{
-    slug: string;
-  }>;
-};
 
 export default async function GalleryDetailPage({ params }: Props) {
   const { slug } = await params;
