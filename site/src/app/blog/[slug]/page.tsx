@@ -1,0 +1,141 @@
+import { posts } from "@/content/blog";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import type { Metadata } from "next";
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({
+  params,
+}: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post = posts.find((p) => p.slug === slug);
+
+  if (!post) {
+    return {
+      title: "Blog Not Found",
+      description: "記事が見つかりませんでした。",
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.description,
+
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
+
+    openGraph: {
+      title: `${post.title} | nnzzm.com`,
+      description: post.seoDescription ?? post.description,
+      url: `/blog/${slug}`,
+      type: "article",
+      images: [
+        {
+          url: post.thumbnail,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} | nnzzm.com`,
+      description: post.seoDescription ?? post.description,
+      images: [post.thumbnail],
+    },
+  };
+}
+
+export default async function BlogDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const post = posts.find((p) => p.slug === slug);
+
+  if (!post) notFound();
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+
+    headline: post.title,
+
+    description:
+      post.seoDescription ?? post.description,
+
+    url: `https://www.nnzzm.com/blog/${slug}`,
+
+    image: `https://www.nnzzm.com${post.thumbnail}`,
+
+    datePublished: post.date,
+
+    articleSection: post.category,
+
+    keywords: post.tags,
+
+    author: {
+      "@id": "https://www.nnzzm.com/#person",
+    },
+
+    publisher: {
+      "@id": "https://www.nnzzm.com/#person",
+    },
+  };
+
+  return (
+    <main className="mx-auto max-w-4xl px-6 md:py-16 sm:py-6">
+      <p className="text-sm tracking-widest text-sky-400">{post.category}</p>
+
+      <h1 className="mt-3 text-xl sm:text-5xl font-serif tracking-wide">
+        {post.title}
+      </h1>
+
+      <p className="mt-3 text-sm text-zinc-500">{post.date}</p>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {post.tags.map((tag) => (
+          <span
+            key={tag}
+            className="rounded-full border border-sky-500/30 bg-sky-500/10 px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm text-sky-300"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+      <Image
+        src={post.thumbnail || "/images/blog/default-cover.webp"}
+        alt={post.title}
+        width={1200}
+        height={675}
+        className="mt-10 aspect-video w-full rounded-2xl object-cover shadow-xl"
+        priority
+      />
+
+      <article className="mt-12">
+        <div className="whitespace-pre-line leading-8 text-zinc-300">
+          {post.content}
+        </div>
+      </article>
+
+      <Link
+        href="/blog"
+        className="mt-12 inline-flex items-center gap-2 text-zinc-500 transition hover:text-sky-400"
+      >
+        ← Blog一覧へ戻る
+      </Link>
+
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
+      />
+    </main>
+  );
+}

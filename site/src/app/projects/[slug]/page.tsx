@@ -1,0 +1,173 @@
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { FaGithub, FaYoutube } from "react-icons/fa";
+import ProjectGallery from "@/components/ProjectGallery";
+
+import type { Metadata } from "next";
+import { projects } from "@/content/projects";
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+      description: "指定されたプロジェクトは見つかりませんでした。",
+    };
+  }
+
+  return {
+    title: project.title,
+    description: project.seoDescription ?? project.description,
+
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
+
+    openGraph: {
+      title: `${project.title} | nnzzm.com`,
+      description: project.seoDescription ?? project.description,
+      url: `/projects/${slug}`,
+      images: [
+        {
+          url: project.ogImage ?? project.thumbnail,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | nnzzm.com`,
+      description: project.seoDescription ?? project.description,
+      images: [project.ogImage ?? project.thumbnail],
+    },
+  };
+}
+
+
+export default async function ProjectPage({ params }: Props) {
+  const { slug } = await params;
+
+  const project = projects.find((p) => p.slug === slug);
+
+  if (!project) notFound();
+
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+
+    name: project.title,
+
+    description:
+      project.seoDescription ?? project.description,
+
+    url: `https://www.nnzzm.com/projects/${slug}`,
+
+    image: `https://www.nnzzm.com${project.ogImage ?? project.thumbnail
+      }`,
+
+    author: {
+      "@id": "https://www.nnzzm.com/#person",
+    },
+
+    ...(project.github && {
+      codeRepository: project.github,
+    }),
+  };
+
+  return (
+    <main className="mx-auto max-w-5xl px-6 py-16">
+      <ProjectGallery
+        title={project.title}
+        image={project.thumbnail}
+        gallery={project.gallery ?? []}
+      />
+
+      <p className="mt-8 text-sm tracking-widest text-sky-400">
+        {project.period}
+      </p>
+
+      <h1 className="mt-3 mb-2 md:text-5xl sm:text-3xl text-xl font-serif tracking-wide">
+        {project.title}
+      </h1>
+
+      <div className="flex flex-wrap gap-3">
+        {project.techStack.map((tech) => (
+          <span
+            key={tech}
+            className="border border-green-400/40 px-2 py-1 text-xs sm:text-sm text-green-500"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+
+
+      <p className="mt-6 text-sm sm:text-lg leading-8 text-zinc-300 whitespace-pre-line">
+        {project.description}
+      </p>
+
+      <section className="mt-16">
+        <h2 className="mb-6 text-xl sm:text-2xl font-serif">特徴</h2>
+
+        <ul className="space-y-3 text-zinc-300">
+          {project.features.map((feature) => (
+            <li key={feature} className="flex items-start gap-3 text-xs sm:text-lg">
+              <span className="mt-2 h-2 w-2 rounded-full bg-sky-400" />
+              {feature}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <div className="mt-8 flex gap-4">
+        {project.github && (
+          <Link
+            rel="noopener noreferrer"
+            href={project.github}
+            target="_blank"
+            className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-sky-400"
+          >
+            <FaGithub />
+            GitHub
+          </Link>
+        )}
+
+        {project.youtube && (
+          <Link
+            rel="noopener noreferrer"
+            href={project.youtube}
+            target="_blank"
+            className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-pink-400 hover:text-pink-400"
+          >
+            <FaYoutube />
+            YouTube
+          </Link>
+        )}
+      </div>
+
+      <section className="mt-16 space-y-8 leading-8 text-zinc-300">
+        {project.content.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+      </section>
+
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
+      />
+    </main>
+  );
+}

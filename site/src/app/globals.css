@@ -1,0 +1,72 @@
+/* @import "sanitize.css"; */
+@import "tailwindcss";
+
+:root {
+  --background: #1a1d21;
+  --foreground: #e1e2e3;
+  --accent: #8b9aa7;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-noto-serif), "Noto Serif JP", serif;
+  min-height: 100vh;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  overflow-x: hidden;
+}
+
+.font-title {
+  font-family: var(--font-noto-serif);
+}
+
+a {
+  /* color: inherit; */
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ===== Loading Animation ===== */
+
+@keyframes led {
+  0%,
+  100% {
+    transform: scale(0.7);
+    opacity: 0.25;
+  }
+
+  35% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+
+  60% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+.animate-led {
+  animation: led 1.2s linear infinite;
+}
+
+@keyframes menuSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.menu-slide-in {
+  animation: menuSlideIn 0.25s ease-out;
+}

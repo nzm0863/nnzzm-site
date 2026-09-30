@@ -1,0 +1,114 @@
+import Image from "next/image";
+import Link from "next/link";
+import { tools } from "@/content/tools";
+import { FaGithub, FaYoutube } from "react-icons/fa";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Tools",
+  description:
+    "AI Auto Blurをはじめとした個人開発ツール一覧。Python・YOLO・画像処理・Webツールを公開しています。",
+
+  alternates: {
+    canonical: "/tools",
+  },
+
+  openGraph: {
+    title: "Tools | nnzzm.com",
+    description:
+      "AI・画像処理・Web開発の個人開発ツール一覧。",
+    url: "/tools",
+    images: ["/ogp-home.webp"],
+  },
+};
+
+export default function ToolsPage() {
+  return (
+    <main className="mx-auto max-w-7xl px-6 py-16">
+      {/* Hero */}
+      <section className="space-y-4">
+        <h1 className="text-xl sm:text-5xl font-serif tracking-wide">Tools</h1>
+
+        <p className="max-w-3xl text-sm sm:text-lg leading-8 text-zinc-300">
+          IoT・Web・AI開発で実際に作った便利ツールやテンプレートを公開しています。
+        </p>
+      </section>
+
+      {/* Tools Grid */}
+      <section className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        {tools.map((tool) => (
+          <article
+            key={tool.title}
+            className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/40 transition hover:border-sky-400"
+          >
+            <Image
+              src={tool.image}
+              alt={tool.title}
+              width={640}
+              height={360}
+              className="aspect-video w-full object-cover"
+            />
+
+            <div className="space-y-4 p-5">
+
+              <div className="flex items-center justify-between">
+                <div className="sm:flex">
+                  <h2 className=" text-xl font-serif leading-tight mb-2 mr-2">{tool.title}</h2>
+
+                  <span
+                    className={`rounded-full px-2 py-1 text-xs tracking-wide ${tool.status === "Available"
+                      ? "border border-sky-400/40 text-sky-300"
+                      : "border border-zinc-400 text-zinc-400"
+                      }`}
+                  >
+                    {tool.status}
+                  </span>
+                </div>
+              </div>
+              <p className="min-h-[32px] leading-tight text-sm leading-7 text-zinc-400">
+                {tool.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {tool.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-sky-400/30 px-3 py-1 text-xs text-sky-300"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-auto flex gap-4 pt-2">
+                {tool.github && (
+                  <Link
+                    href={tool.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-sky-400"
+                  >
+                    <FaGithub />
+                    GitHub
+                  </Link>
+                )}
+
+                {tool.youtube && (
+                  <Link
+                    href={tool.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-pink-400 hover:text-pink-400"
+                  >
+                    <FaYoutube />
+                    YouTube
+                  </Link>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
+      </section>
+    </main>
+  );
+}
