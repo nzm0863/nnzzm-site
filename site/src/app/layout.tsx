@@ -85,6 +85,33 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.nnzzm.com/#website",
+      url: "https://www.nnzzm.com",
+      name: "nnzzm.com",
+      description:
+        "ESP32・Raspberry Pi・Next.jsを中心にしたIoT・Web・AIの個人開発ポートフォリオ。",
+      inLanguage: "ja-JP",
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.nnzzm.com/#person",
+      name: "Nakamura",
+      url: "https://www.nnzzm.com",
+      jobTitle: "IoT / Web Developer",
+      sameAs: [
+        "https://github.com/nzm0863",
+        "https://x.com/nzm0863",
+        "https://www.youtube.com/@nakamura-nnzzm",
+      ],
+    },
+  ],
+};
+
 const notoSansJP = Noto_Sans_JP({
   weight: ["300", "400", "500"],
   variable: "--font-noto-sans",
@@ -102,18 +129,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const personJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Nakamura",
-    url: "https://www.nnzzm.com",
-    jobTitle: "IoT / Web Developer",
-    sameAs: [
-      "https://github.com/nzm0863",
-      "https://x.com/nzm0863",
-      "https://www.youtube.com/@nakamura-nnzzm",
-    ],
-  };
 
   return (
     <html lang="ja">
@@ -123,7 +138,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(personJsonLd),
+            __html: JSON.stringify(jsonLd),
           }}
         />
         {/* <BootScreen /> */}
@@ -133,6 +148,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <Analytics />
+
 
       </body>
     </html>

@@ -39,6 +39,14 @@ const snsLinks = [
     primary: true,
   },
 ];
+const storeLinks = [
+  {
+    name: "BOOTH",
+    url: "https://nnzzm.booth.pm/",
+    icon: "store",
+    primary: true,
+  },
+];
 
 const IoTTechs = [
   "ESP32",
@@ -57,9 +65,9 @@ export const profile = {
     "ESP32・Raspberry Pi・Next.js を中心に、IoT・Web・AI を組み合わせた個人開発をしています。",
   email: "nzm91264@gmail.com",
 
-
   techsLinks,
   snsLinks,
+  storeLinks,
   IoTTechs,
   WebTechs,
 };

@@ -12,7 +12,7 @@ export type Tool = {
 export const tools: Tool[] = [
   {
     title: "AI Auto Blur",
-    description: "AI画像を自動でぼかすデスクトップツール。",
+    description: "AIで画像を自動でぼかすデスクトップツール。",
     image: "/images/tools/AI_auto_blur.webp",
     tags: ["AI", "Electron", "Python"],
     status: "Available",
@@ -20,8 +20,17 @@ export const tools: Tool[] = [
     youtube: "https://www.youtube.com/shorts/hnytZAQRL1k",
   },
   {
+    title: "ESP32Utils",
+    description: "ESP32開発を簡単にするためのユーティリティライブラリ。",
+    image: "/images/tools/ESP32Utils.webp",
+    tags: ["ESP32", "ArduinoIDE", "library"],
+    status: "Available",
+    github: "https://github.com/nzm0863/ESP32Utils",
+    youtube: "https://www.youtube.com/shorts/aXVLTQwZH1s",
+  },
+  {
     title: "ESP32 Wi-Fi Starter",
-    description: "Wi-Fi接続・再接続・設定保存のテンプレート。",
+    description: "Wi-Fi接続のテンプレート。",
     image: "/images/tools/WIFI_connect_template.webp",
     tags: ["ESP32", "Arduino IDE"],
     status: "Available",

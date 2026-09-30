@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/content/projects";
-import { FaGithub, FaYoutube, FaXTwitter, FaDiscord } from "react-icons/fa6";
+import { FaGithub, FaYoutube, FaXTwitter, FaDiscord, FaStore } from "react-icons/fa6";
 import { TbWorld } from "react-icons/tb";
 import { SiPixiv, SiNiconico } from "react-icons/si";
 import { profile } from "@/content/profile";
@@ -34,6 +34,7 @@ export default function AboutPage() {
     pixiv: SiPixiv,
     discord: FaDiscord,
     niconico: SiNiconico,
+    store: FaStore,
   };
 
   return (
@@ -161,8 +162,8 @@ export default function AboutPage() {
       <section className="mt-20">
         <h2 className="mb-8 text-3xl font-serif">Links</h2>
 
-        <h3 className="mb-4 text-sm tracking-[0.2em] text-zinc-500 uppercase">development</h3>
         {/* Tech Links */}
+        <h3 className="mb-4 text-sm tracking-[0.2em] text-zinc-500 uppercase">development</h3>
         <div className="flex flex-wrap gap-4">
           {profile.techsLinks.map((link) => {
             const Icon = iconMap[link.icon as keyof typeof iconMap];
@@ -193,6 +194,26 @@ export default function AboutPage() {
                 href={link.url}
                 target="_blank"
                 className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-sky-400"
+              >
+                <Icon size={18} />
+                {link.name}
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Store Links */}
+        <h3 className="mb-4 mt-6 text-sm tracking-[0.2em] text-zinc-500 uppercase">store</h3>
+        <div className="mt-4 flex flex-wrap gap-4">
+          {profile.storeLinks.map((link) => {
+            const Icon = iconMap[link.icon as keyof typeof iconMap];
+
+            return (
+              <Link
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-green-500"
               >
                 <Icon size={18} />
                 {link.name}

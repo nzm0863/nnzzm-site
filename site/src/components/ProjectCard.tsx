@@ -9,7 +9,7 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="group overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/40">
+    <article className="group overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 transition-all p-2 duration-300 hover:-translate-y-1 hover:border-sky-500/40">
       <Link href={`/projects/${project.slug}`}>
         <Image
           src={project.thumbnail || "/images/projects/default-cover.webp"}

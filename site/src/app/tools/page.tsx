@@ -85,6 +85,7 @@ export default function ToolsPage() {
                   <Link
                     href={tool.github}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-sky-400"
                   >
                     <FaGithub />
@@ -92,13 +93,17 @@ export default function ToolsPage() {
                   </Link>
                 )}
 
-                <Link
-                  href={`/tools/${tool.youtube}`}
-                  className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-pink-400 hover:text-pink-400"
-                >
-                  <FaYoutube />
-                  YouTube
-                </Link>
+                {tool.youtube && (
+                  <Link
+                    href={tool.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-pink-400 hover:text-pink-400"
+                  >
+                    <FaYoutube />
+                    YouTube
+                  </Link>
+                )}
               </div>
             </div>
           </article>

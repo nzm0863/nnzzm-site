@@ -31,7 +31,7 @@ export async function generateMetadata({
 
     openGraph: {
       title: `${post.title} | nnzzm.com`,
-      description: post.description,
+      description: post.seoDescription ?? post.description,
       url: `/blog/${slug}`,
       type: "article",
       images: [
@@ -47,7 +47,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: `${post.title} | nnzzm.com`,
-      description: post.description,
+      description: post.seoDescription ?? post.description,
       images: [post.thumbnail],
     },
   };
@@ -58,6 +58,34 @@ export default async function BlogDetailPage({ params }: Props) {
   const post = posts.find((p) => p.slug === slug);
 
   if (!post) notFound();
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+
+    headline: post.title,
+
+    description:
+      post.seoDescription ?? post.description,
+
+    url: `https://www.nnzzm.com/blog/${slug}`,
+
+    image: `https://www.nnzzm.com${post.thumbnail}`,
+
+    datePublished: post.date,
+
+    articleSection: post.category,
+
+    keywords: post.tags,
+
+    author: {
+      "@id": "https://www.nnzzm.com/#person",
+    },
+
+    publisher: {
+      "@id": "https://www.nnzzm.com/#person",
+    },
+  };
 
   return (
     <main className="mx-auto max-w-4xl px-6 md:py-16 sm:py-6">
@@ -102,6 +130,14 @@ export default async function BlogDetailPage({ params }: Props) {
       >
         ← Blog一覧へ戻る
       </Link>
+
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
+      />
     </main>
   );
 }

@@ -52,12 +52,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
 
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) notFound();
+
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+
+    name: project.title,
+
+    description:
+      project.seoDescription ?? project.description,
+
+    url: `https://www.nnzzm.com/projects/${slug}`,
+
+    image: `https://www.nnzzm.com${project.ogImage ?? project.thumbnail
+      }`,
+
+    author: {
+      "@id": "https://www.nnzzm.com/#person",
+    },
+
+    ...(project.github && {
+      codeRepository: project.github,
+    }),
+  };
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-16">
@@ -110,6 +135,7 @@ export default async function ProjectPage({ params }: Props) {
       <div className="mt-8 flex gap-4">
         {project.github && (
           <Link
+            rel="noopener noreferrer"
             href={project.github}
             target="_blank"
             className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-sky-400"
@@ -121,6 +147,7 @@ export default async function ProjectPage({ params }: Props) {
 
         {project.youtube && (
           <Link
+            rel="noopener noreferrer"
             href={project.youtube}
             target="_blank"
             className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-pink-400 hover:text-pink-400"
@@ -136,6 +163,14 @@ export default async function ProjectPage({ params }: Props) {
           <p key={paragraph}>{paragraph}</p>
         ))}
       </section>
+
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
+      />
     </main>
   );
 }
