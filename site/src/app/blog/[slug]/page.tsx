@@ -60,10 +60,10 @@ export default async function BlogDetailPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <main className="mx-auto max-w-4xl px-6 py-16">
+    <main className="mx-auto max-w-4xl px-6 md:py-16 sm:py-6">
       <p className="text-sm tracking-widest text-sky-400">{post.category}</p>
 
-      <h1 className="mt-3 text-5xl font-serif tracking-wide">
+      <h1 className="mt-3 text-xl sm:text-5xl font-serif tracking-wide">
         {post.title}
       </h1>
 
@@ -73,7 +73,7 @@ export default async function BlogDetailPage({ params }: Props) {
         {post.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-xs text-sky-300"
+            className="rounded-full border border-sky-500/30 bg-sky-500/10 px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm text-sky-300"
           >
             #{tag}
           </span>

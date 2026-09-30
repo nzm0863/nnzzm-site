@@ -55,3 +55,18 @@ a {
 .animate-led {
   animation: led 1.2s linear infinite;
 }
+
+@keyframes menuSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.menu-slide-in {
+  animation: menuSlideIn 0.25s ease-out;
+}

@@ -71,7 +71,7 @@ export default async function ProjectPage({ params }: Props) {
         {project.period}
       </p>
 
-      <h1 className="mt-3 text-5xl font-serif tracking-wide">
+      <h1 className="mt-3 md:text-5xl sm:text-3xl text-xl font-serif tracking-wide">
         {project.title}
       </h1>
 
@@ -79,27 +79,27 @@ export default async function ProjectPage({ params }: Props) {
         {project.techStack.map((tech) => (
           <span
             key={tech}
-            className="rounded-full border border-sky-400/40 px-4 py-2 text-sm text-sky-300"
+            className="rounded-full border border-sky-400/40 px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm text-sky-300"
           >
             {tech}
           </span>
         ))}
       </div>
 
-      <p className="mt-6 text-xl text-zinc-200 leading-8">
+      <p className="mt-6 text-sm sm:text-xl text-zinc-200 leading-8">
         {project.overview}
       </p>
 
-      <p className="mt-6 text-lg leading-8 text-zinc-300">
+      <p className="mt-6 text-sm sm:text-lg leading-8 text-zinc-300">
         {project.description}
       </p>
 
       <section className="mt-16">
-        <h2 className="mb-6 text-2xl font-serif">特徴</h2>
+        <h2 className="mb-6 text-xl sm:text-2xl font-serif">特徴</h2>
 
         <ul className="space-y-3 text-zinc-300">
           {project.features.map((feature) => (
-            <li key={feature} className="flex items-start gap-3">
+            <li key={feature} className="flex items-start gap-3 text-xs sm:text-lg">
               <span className="mt-2 h-2 w-2 rounded-full bg-sky-400" />
               {feature}
             </li>

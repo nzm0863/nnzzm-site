@@ -27,9 +27,9 @@ export default function ToolsPage() {
     <main className="mx-auto max-w-7xl px-6 py-16">
       {/* Hero */}
       <section className="space-y-4">
-        <h1 className="text-5xl font-serif tracking-wide">Tools</h1>
+        <h1 className="text-xl sm:text-5xl font-serif tracking-wide">Tools</h1>
 
-        <p className="max-w-3xl text-lg leading-8 text-zinc-300">
+        <p className="max-w-3xl text-sm sm:text-lg leading-8 text-zinc-300">
           IoT・Web・AI開発で実際に作った便利ツールやテンプレートを公開しています。
         </p>
       </section>
@@ -50,19 +50,21 @@ export default function ToolsPage() {
             />
 
             <div className="space-y-4 p-5">
-              <div className="flex items-center justify-between">
-                <h2 className="min-h-[64px] text-xl font-serif leading-tight">{tool.title}</h2>
 
-                <span
-                  className={`rounded-full px-3 py-1 text-xs tracking-wide ${tool.status === "Available"
+              <div className="flex items-center justify-between">
+                <div className="sm:flex">
+                  <h2 className=" text-xl font-serif leading-tight mb-2 mr-2">{tool.title}</h2>
+
+                  <span
+                    className={`rounded-full px-2 py-1 text-xs tracking-wide ${tool.status === "Available"
                       ? "border border-sky-400/40 text-sky-300"
                       : "border border-zinc-400 text-zinc-400"
-                    }`}
-                >
-                  {tool.status}
-                </span>
+                      }`}
+                  >
+                    {tool.status}
+                  </span>
+                </div>
               </div>
-
               <p className="min-h-[32px] leading-tight text-sm leading-7 text-zinc-400">
                 {tool.description}
               </p>

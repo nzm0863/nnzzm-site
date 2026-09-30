@@ -37,9 +37,9 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16">
+    <main className="mx-auto max-w-5xl px-6 py-4 sm:py-16">
       <section className="flex flex-col items-center text-center space-y-8">
-        <h1 className="text-5xl font-serif tracking-wide">About</h1>
+        <h1 className="text-3xl sm:text-5xl font-serif tracking-wide">About</h1>
 
         <div className="rounded-full bg-pink-500/10 p-2 shadow-[0_0_80px_rgba(236,72,153,0.35)]">
           <Image
@@ -53,21 +53,21 @@ export default function AboutPage() {
         </div>
 
         <div className="space-y-2 text-center">
-          <h2 className="text-3xl font-serif">{profile.name}</h2>
+          <h2 className="text-xl sm:text-3xl font-serif">{profile.name}</h2>
 
-          <p className="text-zinc-400 tracking-wide">
+          <p className="text-sm sm:text-xl text-zinc-400 tracking-wide">
             {profile.role}
           </p>
         </div>
 
-        <p className="max-w-2xl text-center text-lg leading-8 text-zinc-300">
+        <p className="max-w-4xl text-center text-sm sm:text-lg leading-8 text-zinc-300">
           {profile.description}
         </p>
       </section>
 
       <section className="mt-20">
         <div className="mb-8 flex items-center justify-between">
-          <h2 className="text-3xl font-serif">作っているもの</h2>
+          <h2 className="text-xl sm:text-3xl font-serif">作っているもの</h2>
 
           <Link
             href="/projects"

@@ -71,7 +71,7 @@ export default function GallerySetClient({
   return (
 
     <main className="mx-auto max-w-7xl px-6 py-12">
-      <h1 className="mb-10 text-4xl font-bold text-white">
+      <h1 className="md:mb-10 md:text-4xl sm:text-2xl font-bold text-white">
         {gallery.title}
         <span className="text-white"> / {gallerySet.title}</span>
       </h1>

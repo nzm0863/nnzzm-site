@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <main className="relative overflow-hidden">
-      <section className="relative flex min-h-[68vh] items-center justify-center px-6">
+      <section className="relative flex min-h-screen items-center justify-center px-6">
 
         {/* 背景グラデーション */}
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.12),transparent_60%)]" />
@@ -20,11 +20,11 @@ export default function Hero() {
               className="rounded-full drop-shadow-[0_0_40px_rgba(236,72,153,0.45)]"
             />
           </div>
-          <h1 className="font-title mt-10 text-5xl font-light tracking-[0.35em] md:text-7xl">
+          <h1 className="font-title mt-10 text-xl font-light tracking-[0.35em] lg:text-7xl md:text-6xl sm:text-4xl">
             IoT × Web × AI
           </h1>
 
-          <p className="mt-6 text-base text-zinc-400 md:text-xl">
+          <p className="mt-6 text-base text-zinc-400 text-xs md:text-xl">
             ESP32・Raspberry Pi・React・AI開発をまとめた個人開発サイト
           </p>
 
