@@ -33,7 +33,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </Link>
 
           <p className="mt-2 text-sm leading-7 text-zinc-400">
-            {project.description}
+            {project.overview}
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <Link
               href={project.github}
               target="_blank"
-              className="flex items-center gap-2 text-zinc-400 transition hover:text-white"
+              className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-sky-400"
             >
               <FaGithub size={18} />
               <span className="text-sm">GitHub</span>
@@ -64,7 +64,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <Link
               href={project.youtube}
               target="_blank"
-              className="flex items-center gap-2 text-zinc-400 transition hover:text-red-400"
+              className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-pink-400 hover:text-pink-400"
             >
               <FaYoutube size={18} />
               <span className="text-sm">YouTube</span>

@@ -15,7 +15,7 @@ export default function R18Warning({ children }: Props) {
       console.log("R18Warning unmounted");
     };
   }, []);
-  
+
 
   console.log("accepted:", accepted);
 
@@ -27,13 +27,13 @@ export default function R18Warning({ children }: Props) {
 
   return (
     <main className="flex min-h-[70vh] items-center justify-center px-6">
-      <div className="w-full max-w-lg rounded-2xl border border-red-500/30 bg-zinc-900 p-8 text-center">
-        <p className="mb-3 text-sm font-bold tracking-widest text-red-400">
+      <div className="w-full max-w-lg rounded-2xl border border-red-400/20 bg-zinc-900/80 p-8 text-center shadow-lg">
+        <p className="mb-3 text-sm font-medium tracking-widest text-red-300">
           R18 CONTENT
         </p>
 
-        <h1 className="mb-6 text-3xl font-bold text-white">
-          閲覧注意
+        <h1 className="mb-6 text-3xl font-serif text-zinc-100">
+          閲覧について
         </h1>
 
         <p className="mb-3 text-zinc-300">
@@ -41,24 +41,19 @@ export default function R18Warning({ children }: Props) {
         </p>
 
         <p className="mb-8 text-sm leading-6 text-zinc-500">
-          18歳未満の方は閲覧しないでください。
+          18歳未満の方は閲覧をご遠慮ください。
           <br />
           内容をご理解のうえ、閲覧してください。
-        </p>
-
-        <p className="mb-4 text-xs text-zinc-600">
-          accepted: {String(accepted)}
         </p>
 
         <button
           type="button"
           onClick={() => {
-            console.log("閲覧ボタン clicked");
             setAccepted(true);
           }}
-          className="rounded-lg bg-red-500 px-6 py-3 font-semibold text-white transition hover:bg-red-400"
+          className="cursor-pointer rounded-xl border border-red-400/40 px-6 py-3 font-medium text-red-300 transition hover:border-red-300 hover:bg-red-400/10 hover:text-red-200"
         >
-          閲覧する
+          閲覧する →
         </button>
       </div>
     </main>

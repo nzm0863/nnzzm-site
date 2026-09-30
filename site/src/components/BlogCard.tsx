@@ -9,7 +9,7 @@ type Props = {
 export default function BlogCard({ post }: Props) {
   return (
     <Link href={`/blog/${post.slug}`} className="group block">
-      <article className="transition-all duration-300 hover:-translate-y-1">
+      <article className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 p-2 transition-all duration-300 hover:-translate-y-1">
         <Image
           src={post.thumbnail || "/images/blog/default-cover.webp"}
           alt={post.title}
@@ -18,7 +18,7 @@ export default function BlogCard({ post }: Props) {
           className="aspect-video w-full rounded-xl object-cover shadow-md transition duration-300 group-hover:scale-[1.02] group-hover:shadow-xl"
         />
 
-        <p className="inline-block rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 text-xs tracking-widest text-sky-400">
+        <p className="inline-block rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 mt-2 text-xs tracking-widest text-sky-400">
           {post.category}
         </p>
 

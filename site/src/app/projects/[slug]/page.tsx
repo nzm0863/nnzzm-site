@@ -96,7 +96,7 @@ export default async function ProjectPage({ params }: Props) {
         {project.period}
       </p>
 
-      <h1 className="mt-3 md:text-5xl sm:text-3xl text-xl font-serif tracking-wide">
+      <h1 className="mt-3 mb-2 md:text-5xl sm:text-3xl text-xl font-serif tracking-wide">
         {project.title}
       </h1>
 
@@ -104,18 +104,15 @@ export default async function ProjectPage({ params }: Props) {
         {project.techStack.map((tech) => (
           <span
             key={tech}
-            className="rounded-full border border-sky-400/40 px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm text-sky-300"
+            className="border border-green-400/40 px-2 py-1 text-xs sm:text-sm text-green-500"
           >
             {tech}
           </span>
         ))}
       </div>
 
-      <p className="mt-6 text-sm sm:text-xl text-zinc-200 leading-8">
-        {project.overview}
-      </p>
 
-      <p className="mt-6 text-sm sm:text-lg leading-8 text-zinc-300">
+      <p className="mt-6 text-sm sm:text-lg leading-8 text-zinc-300 whitespace-pre-line">
         {project.description}
       </p>
 

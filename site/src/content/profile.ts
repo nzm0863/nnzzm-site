@@ -57,6 +57,7 @@ const IoTTechs = [
   "Docker",
 ];
 const WebTechs = ["TypeScript", "React", "Tailwind CSS", "Next.js"];
+const AITechs = ["ComfyUI", "Python", "YOLO"];
 
 export const profile = {
   name: "Nakamura / nnzzm",
@@ -70,4 +71,5 @@ export const profile = {
   storeLinks,
   IoTTechs,
   WebTechs,
+  AITechs,
 };

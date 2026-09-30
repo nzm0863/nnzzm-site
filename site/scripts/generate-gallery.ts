@@ -19,21 +19,38 @@ const setTitleMap: Record<string, string> = {
   miko: "巫女",
   shower: "シャワー",
   cheerleader: "チアリーダー",
-  r18_shower:"シャワー",
+  r18_shower: "シャワー",
 };
-
 
 const slugify = (category: string, character: string) =>
   `${category.toLowerCase()}-${character}`;
 
-const categories = fs.readdirSync(galleryRoot);
+const categories = fs.readdirSync(galleryRoot).sort((a, b) => {
+  if (a === "original") return 1;
+  if (b === "original") return -1;
 
+  return a.localeCompare(b);
+});
+
+const characterOrder = Object.keys(titleMap);
 const galleries = categories.flatMap((category) => {
   const categoryPath = path.join(galleryRoot, category);
 
   if (!fs.statSync(categoryPath).isDirectory()) return [];
 
-  const characters = fs.readdirSync(categoryPath);
+  const characters = fs.readdirSync(categoryPath).sort((a, b) => {
+    const indexA = characterOrder.indexOf(a);
+    const indexB = characterOrder.indexOf(b);
+
+    if (indexA !== -1 && indexB !== -1) {
+      return indexA - indexB;
+    }
+
+    if (indexA !== -1) return -1;
+    if (indexB !== -1) return 1;
+
+    return a.localeCompare(b);
+  });
 
   return characters.map((character) => {
     const characterPath = path.join(categoryPath, character);

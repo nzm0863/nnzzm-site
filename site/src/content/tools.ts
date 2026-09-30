@@ -13,7 +13,7 @@ export const tools: Tool[] = [
   {
     title: "AI Auto Blur",
     description: "AIで画像を自動でぼかすデスクトップツール。",
-    image: "/images/tools/AI_auto_blur.webp",
+    image: "/images/tools/AI_Auto_Blur.webp",
     tags: ["AI", "Electron", "Python"],
     status: "Available",
     github: "https://github.com/nzm0863/AI_Auto_Blur",
@@ -42,7 +42,7 @@ export const tools: Tool[] = [
     description: "OTAアップデート対応テンプレート。",
     image: "/images/tools/WIFI_OTA_template.webp",
     tags: ["ESP32", "OTA"],
-    status: "Coming Soon",
+    status: "Available",
     github: "https://github.com/nzm0863/WIFI_OTA_template",
   },
 ];

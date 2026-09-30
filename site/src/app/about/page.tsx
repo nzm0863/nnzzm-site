@@ -145,11 +145,25 @@ export default function AboutPage() {
 
           <div>
             <h3 className="mb-4 text-sm tracking-[0.2em] text-zinc-500 uppercase">
-              Web / AI
+              Web
             </h3>
 
             <div className="flex flex-wrap gap-3">
               {profile.WebTechs.map((tech) => (
+                <span key={tech} className="rounded-full border border-sky-400/30 px-4 py-2 text-sm text-sky-300">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="mb-4 text-sm tracking-[0.2em] text-zinc-500 uppercase">
+              AI
+            </h3>
+
+            <div className="flex flex-wrap gap-3">
+              {profile.AITechs.map((tech) => (
                 <span key={tech} className="rounded-full border border-sky-400/30 px-4 py-2 text-sm text-sky-300">
                   {tech}
                 </span>

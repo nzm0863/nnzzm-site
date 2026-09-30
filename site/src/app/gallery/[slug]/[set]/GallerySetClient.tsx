@@ -94,7 +94,7 @@ export default function GallerySetClient({
             loading={index === 0 ? "eager" : "lazy"}
             priority={index === 0}
             onClick={() => openImage(index)}
-            className="aspect-[3/4] w-full cursor-zoom-in rounded-xl object-cover transition duration-200 hover:scale-[1.02]"
+            className="aspect-[3/4] w-full cursor-zoom-in object-cover transition duration-200 hover:scale-[1.02]"
           />
         ))}
       </section>
@@ -131,7 +131,7 @@ export default function GallerySetClient({
             height={1800}
             sizes="90vw"
             onClick={(e) => e.stopPropagation()}
-            className="max-h-[90vh] w-auto rounded-xl object-contain"
+            className="h-[95vh] w-auto max-w-[90vw] object-contain"
             loading="eager"
           />
 
@@ -145,10 +145,10 @@ export default function GallerySetClient({
             ❯
           </button>
 
-          <p className="absolute bottom-6 text-sm text-zinc-300">
+          <p className="absolute left-20 bottom-20 text-sm text-zinc-400">
             {selectedIndex + 1} / {gallerySet.images.length}
           </p>
-          <p className="absolute bottom-14 text-xs text-zinc-500">
+          <p className="absolute left-20 bottom-14 text-xs text-zinc-500">
             ← → キーで切替 / Escで閉じる
           </p>
         </div>

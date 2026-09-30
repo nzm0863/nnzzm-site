@@ -28,74 +28,153 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "esp32-mecanum",
-    title: "ESP32 メカナムロボット",
-    description: "ESP32・React・WebSocketで操作するロボット。",
-    seoDescription:
-      "ESP32とReact、WebSocketを使用して制作したメカナムホイールロボット。Xboxゲームパッドによるリアルタイム操作や全方向移動を実装したIoT個人開発プロジェクトです。",
-
     thumbnail: "/images/projects/ESP32Car.webp",
-    tags: ["ESP32", "React", "WebSocket"],
+    tags: ["ESP32", "ESP32S3", "ゲームパッド"],
+    overview: "ESP32とゲームパッドで操作するメカナムロボット。",
+    period: "2026.09",
 
-    github: "https://github.com/nzm0863/ESP32Car",
-    youtube: "https://www.youtube.com/shorts/xxxxxxxx",
-
-    period: "2025.05",
-    content: [
-      "ESP32でメカナムホイールを制御するロボットを制作しました。",
-      "ReactからWebSocket経由でリアルタイム操作できます。",
-      "ゲームパッド入力にも対応しています。",
-    ],
+    title: "ESP32 メカナムロボット",
     gallery: [
       "/images/projects/ESP32Car.webp",
       "/images/projects/ESP32Car2.webp",
       "/images/projects/ESP32Car3.webp",
     ],
-    overview: "ESP32とゲームパッドで操作するメカナムロボット。",
-
-    features: [
-      "Xboxコントローラー操作",
-      "WebSocketリアルタイム通信",
-      "メカナムホイール全方向移動",
-    ],
-
     techStack: [
       "ESP32 DevKitC",
+      "ESP32S3",
       "Arduino IDE",
-      "React",
-      "TypeScript",
-      "WebSocket",
     ],
-    featured: true,
-  },
+    description: `　Raspberry Piで製作していたラジコンカーが故障したため、 その部品を一部流用しながらESP32を使用して一から製作しているロボットカー。木で組み立てることで拡張、試行錯誤がやりやすくなっている。
+    
+    　ESP32S3を司令塔としてそれぞれの稼働カ所のESP32に指示を出す設計。
 
-  {
-    slug: "ai-auto-blur",
-    title: "AI Auto Blur",
-    description: "AIを使った画像ぼかしツール。",
-    seoDescription:
-      "YOLO11セグメンテーションを利用して人物や顔を自動検出し、画像を一括でぼかせるWindows向けAIツール。Python・OpenCV・CustomTkinter・PyInstallerで開発。",
+    　18650電池を昇圧モジュールで電圧を引き上げ、一つはメカナムホイール、もう一つはESP32への電源として接続。
+    ラズパイ5とカメラモジュールも使用して画像解析も入れる予定。
+    `,
 
-    thumbnail: "/images/projects/AI_auto_blur.webp",
-    tags: ["Electron", "Python", "AI"],
-
-    github: "https://github.com/nzm0863/AI_auto_blur",
-
-    period: "2025.07",
-    content: [
-      "YOLO11セグメンテーションを利用して人物や顔を自動検出するWindows向け画像ぼかしツールを開発しました。",
-      "CustomTkinterでGUIを作成し、フォルダ単位の一括画像処理に対応しています。",
-      "PNG・JPG・JPEG・WebP形式に対応し、ぼかし強度や検出精度を調整できます。",
-    ],
-    overview: "YOLO11を使って画像を自動でぼかすWindows向けAIツール。",
+    github: "https://github.com/nzm0863/IoT_ESP32Car",
+    youtube: "https://www.youtube.com/shorts/H7LRGQXD7YQ",
 
     features: [
-      "YOLO11 セグメンテーション",
-      "一括画像処理",
-      "ぼかし強度調整",
-      "PNG・JPG・WebP対応",
+      "木造",
+      "Xboxコントローラー操作",
+      "メカナムホイール全方向移動",
+    ],
+    content: [
+      "ブレッドボードだとやはり取れやすいのでいずれユニバーサル基盤にはんだ付けする予定",
+      "木材加工なら慣れているからできると思ったら工具が足りなくて意外と大変",
+      "見学会に出したら好評で嬉しい(´▽｀*)",
     ],
 
-    techStack: ["Python", "YOLO11", "OpenCV", "CustomTkinter", "PyInstaller"],
+    
     featured: true,
+    seoDescription:
+      "ESP32を使用して制作したメカナムホイールロボット。Xboxゲームパッドによるリアルタイム操作や全方向移動を実装したIoT個人開発プロジェクトです。",
+
   },
-];
+
+
+  {
+    slug: "AI_Auto_Blur",
+    thumbnail: "/images/projects/AI_Auto_Blur.webp",
+    tags: ["AI", "Python", "YOLO"],
+    overview: "AIで指定部を自動でぼかすデスクトップアプリ",
+    period: "2026.09",
+
+    title: "AI_Auto_Blur",
+    gallery: [
+      "/images/projects/AI_Auto_Blur.webp",
+      "/images/projects/AI_Auto_Blur2.webp",
+      "/images/projects/AI_Auto_Blur3.webp",
+    ],
+    techStack: [
+      "Python",
+      "YOLO",
+      "Tkinter",
+      "windows",
+    ],
+    description: `　写真の人の顔、イラストの陰部をAIで検知してぼかし処理をかける画像加工ツール。
+    
+    　AIイラストを大量に生成した後投稿する時に、陰部にぼかし処理をするのが大変だったので作成した。
+    つまりちん〇とまん〇を自動でぼかせるのだ！(#^.^#)
+
+    　これだけだと使う人がかなり限られるだろうってことで写真の顔も追加。
+    選択して好きな処理を行える。使いやすくGUIも作成。
+
+    　現在無料公開中！いずれ有料版も出す予定。
+    `,
+
+    github: "https://github.com/nzm0863/AI_Auto_Blur",
+    youtube: "https://www.youtube.com/shorts/hnytZAQRL1k",
+
+    features: [
+      "無料公開",
+      "判定の厳しさ、ブラーの濃さをスライダーで指定可能。",
+      "えっちい画像に！",
+    ],
+    content: [
+      "AIイラストを投稿する人にこそ使ってもらいたいツール",
+      "千枚でも数分で加工可能",
+      "まだ判定が甘いときがあるので、アップデートでAI学習を重ね最新モデルを公開する予定",
+    ],
+
+    
+    featured: true,
+    seoDescription:
+      "ESP32を使用して制作したメカナムホイールロボット。Xboxゲームパッドによるリアルタイム操作や全方向移動を実装したIoT個人開発プロジェクトです。",
+
+  },
+
+
+  {
+    slug: "IoT_toilet_notification",
+    thumbnail: "/images/projects/toilet.webp",
+    tags: ["ESP32", "WIFI", "通知機能"],
+    overview: "トイレに人が入っているかを通知するIoTシステム",
+    period: "2026.09",
+
+    title: "IoT_toilet_notification",
+    gallery: [
+      "/images/projects/toilet.webp",
+      "/images/projects/toilet2.webp",
+      "/images/projects/toilet3.webp",
+    ],
+    techStack: [
+      "ESP32",
+      "光センサー",
+      "WIFI",
+    ],
+    description: `　離れた場所でもトイレに人が入っているかLEDでわかるシステム。
+
+    　通っている就労移行支援事業所でトイレの前まで行かなければわからなかった使用中の通知システムをESP32、光センサー、LEDで作成した。
+
+    　今回のトイレは入るときほぼ必ず照明をつけるので、光センサーを使用した。
+    つまり、証明を消し忘れた場合も通知し続けることになる。
+
+    　通っているところが障害のある人たちの使用する施設ということもあるので、30分点きっぱなしの場合はLEDを点滅させて通知するようにした。
+    中で誰かが倒れていたり、単純に電気を消し忘れていた場合もこれで対処できる。
+
+    　予算も考慮した分妥協した面もあるが、事業所でかなり感謝されたので個人的には大満足(/・ω・)/
+    `,
+
+    github: "https://github.com/nzm0863/IoT_toilet_notification",
+    youtube: "https://www.youtube.com/shorts/MFViIbvx_ls",
+
+    features: [
+      "トイレ使用中、電気消し忘れ通知",
+      "ESP32二つ使用",
+      "現在も事業所で稼働中",
+    ],
+    content: [
+      "かなり前から作りたいと思っていたIoT。事業所から要望が来たこともあって作成",
+      "光センサーやほかの人感センサーなどを使えばもっと制度や使い勝手があがりそう",
+      "トイレに使えるコンセントが必要。なければモバイルバッテリーとかを使う必要がある",
+    ],
+
+    
+    featured: true,
+    seoDescription:
+      "ESP32を使用して制作したメカナムホイールロボット。Xboxゲームパッドによるリアルタイム操作や全方向移動を実装したIoT個人開発プロジェクトです。",
+
+  },
+]

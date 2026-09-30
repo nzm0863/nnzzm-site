@@ -103,7 +103,7 @@ export default async function BlogDetailPage({ params }: Props) {
             key={tag}
             className="rounded-full border border-sky-500/30 bg-sky-500/10 px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm text-sky-300"
           >
-            #{tag}
+            {tag}
           </span>
         ))}
       </div>
@@ -117,10 +117,8 @@ export default async function BlogDetailPage({ params }: Props) {
       />
 
       <article className="mt-12">
-        <div className="space-y-8 leading-8 text-zinc-300">
-          {post.content.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
+        <div className="whitespace-pre-line leading-8 text-zinc-300">
+          {post.content}
         </div>
       </article>
 

@@ -65,7 +65,7 @@ export default async function GalleryDetailPage({ params }: Props) {
 
   return (
     <main className="mx-auto max-w-7xl px-6 py-12">
-      <h1 className="mb-2 text-5xl font-bold text-white">
+      <h1 className="mb-2 text-xl sm:text-3xl md:text-5xl font-bold text-white">
         {gallery.title}
       </h1>
 
@@ -88,7 +88,7 @@ export default async function GalleryDetailPage({ params }: Props) {
                     width={320}
                     height={420}
                     loading="lazy"
-                    className="aspect-[3/4] w-full rounded-xl object-cover transition duration-300 group-hover:scale-[1.02]"
+                    className="aspect-[3/4] w-full object-cover transition duration-300 group-hover:scale-[1.02]"
                   />
 
                   {set.isR18 && (
