@@ -106,7 +106,7 @@ export default function AboutPage() {
                   </h3>
 
                   <p className="text-sm text-zinc-400">
-                    {project.description}
+                    {project.overview}
                   </p>
 
                   <div className="flex flex-wrap gap-2">
