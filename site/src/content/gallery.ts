@@ -547,7 +547,7 @@ export const galleries: Gallery[] = [
   {
     "slug": "original-game-charactor",
     "category": "original",
-    "title": "ゲームキャラクター",
+    "title": "ゲームキャラクター(試作)",
     "sets": [
       {
         "slug": "normal",
