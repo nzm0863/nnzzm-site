@@ -20,12 +20,12 @@ const techsLinks = [
 ];
 const snsLinks = [
   { name: "X", url: "https://x.com/nzm0863", icon: "x", primary: true },
-  {
-    name: "Pixiv",
-    url: "https://www.pixiv.net/users/90306988",
-    icon: "pixiv",
-    primary: true,
-  },
+  // {
+  //   name: "Pixiv",
+  //   url: "https://www.pixiv.net/users/90306988",
+  //   icon: "pixiv",
+  //   primary: true,
+  // },
   {
     name: "Discord",
     url: "https://discord.gg/WU3KVWqA9",
