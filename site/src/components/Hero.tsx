@@ -25,7 +25,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 text-base text-zinc-400 text-xs md:text-xl">
-            ESP32・Raspberry Pi・React・AI開発をまとめた個人開発サイト
+            ESP32・Raspberry Pi・React・AI開発をまとめた<br/>個人開発サイト
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
