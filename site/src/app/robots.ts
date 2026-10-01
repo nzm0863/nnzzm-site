@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://www.nnzzm.com/sitemap.xml",
+    sitemap: "https://nnzzm.com/sitemap.xml",
   };
 }

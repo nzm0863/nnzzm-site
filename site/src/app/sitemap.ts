@@ -3,7 +3,7 @@ import { posts } from "@/content/blog";
 import { projects } from "@/content/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.nnzzm.com";
+  const base = "https://nnzzm.com";
 
   return [
     { url: base },
