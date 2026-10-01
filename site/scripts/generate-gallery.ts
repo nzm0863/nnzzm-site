@@ -20,6 +20,10 @@ const setTitleMap: Record<string, string> = {
   shower: "シャワー",
   cheerleader: "チアリーダー",
   r18_shower: "シャワー",
+  beach:"ビーチ",
+  date:"デート",
+  pajamas:"パジャマ",
+  forest:"森",
 };
 
 const slugify = (category: string, character: string) =>
