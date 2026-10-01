@@ -311,7 +311,7 @@ export const galleries: Gallery[] = [
     "sets": [
       {
         "slug": "forest",
-        "title": "forest",
+        "title": "森",
         "cover": "/images/gallery/ToLOVE-ru/yami/forest/cover.webp",
         "images": [
           "/images/gallery/ToLOVE-ru/yami/forest/ComfyUI_16372_.webp",
@@ -380,7 +380,7 @@ export const galleries: Gallery[] = [
     "sets": [
       {
         "slug": "pajamas",
-        "title": "pajamas",
+        "title": "パジャマ",
         "cover": "/images/gallery/ToLOVE-ru/momo/pajamas/cover.webp",
         "images": [
           "/images/gallery/ToLOVE-ru/momo/pajamas/ComfyUI_23897_.webp",
@@ -432,7 +432,7 @@ export const galleries: Gallery[] = [
     "sets": [
       {
         "slug": "beach",
-        "title": "beach",
+        "title": "ビーチ",
         "cover": "/images/gallery/ToLOVE-ru/mea/beach/cover.webp",
         "images": [
           "/images/gallery/ToLOVE-ru/mea/beach/ComfyUI_09341_.webp",
@@ -484,7 +484,7 @@ export const galleries: Gallery[] = [
     "sets": [
       {
         "slug": "date",
-        "title": "date",
+        "title": "デート",
         "cover": "/images/gallery/ToLOVE-ru/mikan/date/cover.webp",
         "images": [
           "/images/gallery/ToLOVE-ru/mikan/date/ComfyUI_01277_.webp",
@@ -554,9 +554,39 @@ export const galleries: Gallery[] = [
         "title": "通常衣装",
         "cover": "/images/gallery/original/game-charactor/normal/cover.webp",
         "images": [
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06473_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06484_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06498_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06512_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06524_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06525_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06704_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06705_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06706_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06716_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06717_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06718_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06737_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06738_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06760_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06761_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06762_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06786_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06796_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06797_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06847_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06858_.webp",
           "/images/gallery/original/game-charactor/normal/ComfyUI_06861_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06875_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06894_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06907_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06932_.webp",
           "/images/gallery/original/game-charactor/normal/ComfyUI_06934_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_06944_.webp",
           "/images/gallery/original/game-charactor/normal/ComfyUI_07315_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_07320_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_07322_.webp",
+          "/images/gallery/original/game-charactor/normal/ComfyUI_07346_.webp",
           "/images/gallery/original/game-charactor/normal/ComfyUI_07350_.webp"
         ],
         "isR18": false
