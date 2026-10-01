@@ -4,6 +4,8 @@ IoT × Web × AI をテーマにした個人開発ポートフォリオ。
 
 🌐 https://www.nnzzm.com
 
+![portfolio](image.png)
+
 ## About
 
 ESP32・Raspberry PiなどのIoT開発、
