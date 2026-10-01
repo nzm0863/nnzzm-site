@@ -53,7 +53,7 @@ export default function Footer() {
               href="mailto:nzm91264@gmail.com"
               className="mt-3 inline-block text-sm text-sky-500 transition hover:text-sky-300"
             >
-              nzm91264@gmail.com
+              nakamura.rundev@gmail.com
             </a>
           </section>
         </div>
