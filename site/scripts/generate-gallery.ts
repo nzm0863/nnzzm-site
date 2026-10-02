@@ -24,6 +24,7 @@ const setTitleMap: Record<string, string> = {
   date:"デート",
   pajamas:"パジャマ",
   forest:"森",
+  camisole:"キャミソール",
 };
 
 const slugify = (category: string, character: string) =>
