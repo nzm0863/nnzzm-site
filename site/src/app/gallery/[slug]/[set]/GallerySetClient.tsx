@@ -95,6 +95,7 @@ export default function GallerySetClient({
             priority={index === 0}
             onClick={() => openImage(index)}
             className="aspect-[3/4] w-full cursor-zoom-in object-cover transition duration-200 hover:scale-[1.02]"
+            unoptimized
           />
         ))}
       </section>
