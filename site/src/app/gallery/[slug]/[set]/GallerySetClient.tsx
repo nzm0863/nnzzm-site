@@ -134,6 +134,7 @@ export default function GallerySetClient({
             onClick={(e) => e.stopPropagation()}
             className="h-[95vh] w-auto max-w-[90vw] object-contain"
             loading="eager"
+            unoptimized
           />
 
           <button
