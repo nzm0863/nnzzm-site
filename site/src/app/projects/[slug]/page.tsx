@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FaGithub, FaYoutube } from "react-icons/fa";
 import ProjectGallery from "@/components/ProjectGallery";
 
+
 import type { Metadata } from "next";
 import { projects } from "@/content/projects";
 

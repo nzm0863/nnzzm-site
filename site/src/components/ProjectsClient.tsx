@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { projects } from "@/content/projects";
 import ProjectCard from "@/components/ProjectCard";
+import { profile } from "@/content/profile";
+import Link from "next/link";
 
 export default function ProjectsClient() {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
@@ -17,9 +19,17 @@ export default function ProjectsClient() {
     <main className="mx-auto max-w-7xl px-6 py-16">
       <section className="mb-12">
         <h1 className="text-5xl font-serif tracking-wide">Projects</h1>
-        <p className="mt-4 text-zinc-400">
-          IoT・Web・AIで制作したプロジェクトをまとめています。
-        </p>
+        <div className="mt-4 sm:flex justify-between">
+          <p className="text-zinc-400">
+            IoT・Web・AIで制作したプロジェクトをまとめています。
+          </p>
+          <Link
+            rel="noopener noreferrer"
+            href={profile.techsLinks[1].url}
+            target="_blank"
+            className="flex text-sky-500 items-center transition hover:text-pink-400"
+          >YouTubeはこちら→</Link>
+        </div>
       </section>
 
       <section className="mb-10 flex flex-wrap gap-3">
