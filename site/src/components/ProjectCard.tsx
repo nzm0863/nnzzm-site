@@ -17,6 +17,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           width={640}
           height={400}
           className="aspect-video w-full rounded-xl object-cover transition duration-300 group-hover:scale-[1.02]"
+          unoptimized
         />
       </Link>
 
