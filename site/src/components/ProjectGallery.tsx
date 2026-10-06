@@ -25,6 +25,7 @@ export default function ProjectGallery({
         height={675}
         className="aspect-video w-full rounded-2xl object-cover shadow-lg"
         priority
+        unoptimized
       />
 
       {gallery.length > 0 && (
@@ -45,6 +46,7 @@ export default function ProjectGallery({
                 width={300}
                 height={200}
                 className="aspect-video w-full object-cover"
+                unoptimized
               />
             </button>
           ))}
