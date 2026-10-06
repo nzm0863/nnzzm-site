@@ -28,6 +28,7 @@ const setTitleMap: Record<string, string> = {
   r18_camisole:"R18キャミソール",
   r18_sports:"R18体操服",
   cosplay:"いろんなコスプレ",
+  whiteT:"白T"
 };
 
 const slugify = (category: string, character: string) =>
