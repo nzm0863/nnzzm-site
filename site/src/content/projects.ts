@@ -195,6 +195,7 @@ export const projects: Project[] = [
       "ESP32",
       "React",
       "TypeScript",
+      "Tauri"
     ],
     description: `　以前受けたインターンでの課題に基づいて自分で作成したWebアプリ。
 
