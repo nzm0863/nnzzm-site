@@ -114,6 +114,7 @@ export default async function BlogDetailPage({ params }: Props) {
         height={675}
         className="mt-10 aspect-video w-full rounded-2xl object-cover shadow-xl"
         priority
+        unoptimized
       />
 
       <article className="mt-12">
