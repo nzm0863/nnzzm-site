@@ -89,6 +89,7 @@ export default async function GalleryDetailPage({ params }: Props) {
                     height={420}
                     loading="lazy"
                     className="aspect-[3/4] w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                    unoptimized
                   />
 
                   {set.isR18 && (
