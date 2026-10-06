@@ -121,7 +121,7 @@ export const projects: Project[] = [
     
     featured: true,
     seoDescription:
-      "ESP32を使用して制作したメカナムホイールロボット。Xboxゲームパッドによるリアルタイム操作や全方向移動を実装したIoT個人開発プロジェクトです。",
+      "写真の人の顔、イラストの陰部をAIで自動検知からぼかし処理まで行うデスクトップアプリです。",
 
   },
 
@@ -174,7 +174,55 @@ export const projects: Project[] = [
     
     featured: true,
     seoDescription:
-      "ESP32を使用して制作したメカナムホイールロボット。Xboxゲームパッドによるリアルタイム操作や全方向移動を実装したIoT個人開発プロジェクトです。",
+      "トイレに人が入っているかLEDで通知するIoTシステムです。",
+
+  },
+  {
+    slug: "taskflow",
+    thumbnail: "/images/projects/taskflow.webp",
+    tags: ["ESP32", "React", "通知機能","Web","TypeScript"],
+    overview: "案件管理アプリtaskflow",
+    period: "2026.09",
+
+    title: "案件管理アプリtaskflow",
+    gallery: [
+      "/images/projects/taskflow.webp",
+      "/images/projects/taskflow2.webp",
+      "/images/projects/taskflow3.webp",
+      "/images/projects/taskflow4.webp",
+    ],
+    techStack: [
+      "ESP32",
+      "React",
+      "TypeScript",
+    ],
+    description: `　以前受けたインターンでの課題に基づいて自分で作成したWebアプリ。
+
+    　100時間以内で設計からデプロイまで実施し、実装内容のスライドも作成。
+    課題はWebアプリの作成だったがせっかくなのでESP32とNeoPixelLED、サーボモーターを使用した通知機能を実装し、Tauriによるデスクトップアプリ化まで行った。
+
+    　初めての部分も多かったので細かくすべてを理解するのではなく全体の流れを理解することを重視して作成。
+    今見返すとReactのコンポーネント分けが甘い気がする(;・∀・)
+    `,
+
+    github: "https://github.com/nzm0863/taskflow-app",
+    youtube: "https://www.youtube.com/watch?v=A44YyAnDyGU",
+
+    features: [
+      "複数アカウント、承認フロー",
+      "ESP32通知機能",
+      "Tauriデスクトップアプリ化",
+    ],
+    content: [
+      "インターンといっても課題を1カ月かけてオンラインでこなすもので、教えてもらうとかはなかった",
+      "AI使いながらの開発ではあるが、これが作れるだけの技術力はついてきた",
+      "周りの人に使っていただいて、意見をかなり反映したので誰かに見てもらうのはかなり大事",
+    ],
+
+    
+    featured: true,
+    seoDescription:
+      "インターン課題に基づいて開発した案件管理アプリです。",
 
   },
 ]
