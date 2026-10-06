@@ -9,7 +9,7 @@ ESP32・Raspberry Pi・Next.jsを中心に、IoT・Web・AIを組み合わせた
 ▶️ **YouTube:** https://www.youtube.com/@nakamura-nnzzm
 
 <p align="center">
-  <img src="image.png" alt="nnzzm.com" width="800">
+  <img src="assets/image.png" alt="nnzzm.com" width="800">
 </p>
 ---
 
