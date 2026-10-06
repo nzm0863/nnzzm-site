@@ -181,8 +181,8 @@ export const projects: Project[] = [
     slug: "taskflow",
     thumbnail: "/images/projects/taskflow.webp",
     tags: ["ESP32", "React", "通知機能","Web","TypeScript"],
-    overview: "案件管理アプリtaskflow",
-    period: "2026.09",
+    overview: "案件管理のためのWebアプリ",
+    period: "2026.10",
 
     title: "案件管理アプリtaskflow",
     gallery: [
