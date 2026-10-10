@@ -825,7 +825,7 @@ export const galleries: Gallery[] = [
       },
       {
         "slug": "r18_towel",
-        "title": "r18_towel",
+        "title": "R18タオル",
         "cover": "/images/gallery/ToLOVE-ru/momo/r18_towel/cover.webp",
         "images": [
           "/images/gallery/ToLOVE-ru/momo/r18_towel/ComfyUI_05971_.webp",
