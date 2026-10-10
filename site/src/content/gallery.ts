@@ -822,6 +822,40 @@ export const galleries: Gallery[] = [
           "/images/gallery/ToLOVE-ru/momo/pajamas/ComfyUI_24025_.webp"
         ],
         "isR18": false
+      },
+      {
+        "slug": "towel",
+        "title": "タオル",
+        "cover": "/images/gallery/ToLOVE-ru/momo/towel/cover.webp",
+        "images": [
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_05971_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_05972_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_05973_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_05974_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_05975_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_05977_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_05981_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_05982_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06011_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06012_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06013_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06014_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06015_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06017_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06018_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06020_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06024_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06025_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06026_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06029_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06035_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06036_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06038_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06039_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06041_.webp",
+          "/images/gallery/ToLOVE-ru/momo/towel/ComfyUI_06042_.webp"
+        ],
+        "isR18": false
       }
     ]
   },
