@@ -3,6 +3,7 @@ import path from "path";
 
 const galleryRoot = path.join(process.cwd(), "public", "images", "gallery");
 const outputFile = path.join(process.cwd(), "src", "content", "gallery.ts");
+const GALLERY_BASE_URL = "https://img.nnzzm.com/gallery";
 
 const titleMap: Record<string, string> = {
   lala: "ララ・サタリン・デビルーク",
@@ -79,10 +80,11 @@ const galleries = categories.flatMap((category) => {
         return {
           slug: set,
           title: setTitleMap[set] ?? set,
-          cover: `/images/gallery/${category}/${character}/${set}/cover.webp`,
+          cover: `${GALLERY_BASE_URL}/${category}/${character}/${set}/cover.webp`,
+
           images: images.map(
             (image) =>
-              `/images/gallery/${category}/${character}/${set}/${image}`,
+              `${GALLERY_BASE_URL}/${category}/${character}/${set}/${image}`,
           ),
           isR18: set.toLowerCase().startsWith("r18_"),
         };
