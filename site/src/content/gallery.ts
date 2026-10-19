@@ -447,6 +447,15 @@ export const galleries: Gallery[] = [
         "isR18": false
       },
       {
+        "slug": "pink_camisole",
+        "title": "ピンクキャミソール",
+        "cover": "https://img.nnzzm.com/gallery/ToLOVE-ru/yami/pink_camisole/cover.webp",
+        "images": [
+          "https://img.nnzzm.com/gallery/ToLOVE-ru/yami/pink_camisole/ComfyUI_06519_.webp"
+        ],
+        "isR18": false
+      },
+      {
         "slug": "r18_camisole",
         "title": "R18キャミソール",
         "cover": "https://img.nnzzm.com/gallery/ToLOVE-ru/yami/r18_camisole/cover.webp",

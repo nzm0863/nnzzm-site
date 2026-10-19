@@ -50,3 +50,4 @@ Thumbs.db
 
 # （必要なら生成ファイルも）
 # src/content/gallery.ts
+/site/scripts/r2-gallery-manifest.json
