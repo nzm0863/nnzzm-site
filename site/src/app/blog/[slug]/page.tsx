@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { marked } from "marked";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -112,15 +113,32 @@ export default async function BlogDetailPage({ params }: Props) {
         alt={post.title}
         width={1200}
         height={675}
-        className="mt-10 aspect-video w-full rounded-2xl object-cover shadow-xl"
+        className="mt-10 w-full rounded-2xl shadow-xl"
         priority
         unoptimized
       />
 
       <article className="mt-12">
-        <div className="whitespace-pre-line leading-8 text-zinc-300">
-          {post.content}
-        </div>
+        <div
+          className="
+    prose prose-invert max-w-none
+    prose-headings:font-serif
+    prose-headings:tracking-wide
+    prose-a:text-sky-400
+    prose-a:underline
+    prose-strong:text-white
+    prose-code:text-sky-300
+    prose-pre:rounded-xl
+    prose-pre:border
+    prose-pre:border-zinc-700
+    prose-pre:bg-zinc-900
+    prose-li:marker:text-sky-400
+    leading-8 text-zinc-300
+  "
+          dangerouslySetInnerHTML={{
+            __html: await marked.parse(post.content),
+          }}
+        />
       </article>
 
       <Link
