@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { storeProducts } from "@/content/store";
 import type { Metadata } from "next";
+import StoreGallery from "@/components/StoreGallery";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -85,6 +86,12 @@ export default async function StoreDetailPage({
           </button>
         </section>
       </div>
+
+      <StoreGallery
+        title={product.title}
+        image={product.samples[0] ?? product.image}
+        gallery={product.samples}
+      />
     </main>
   );
 }
