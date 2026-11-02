@@ -66,15 +66,11 @@ export default async function StoreDetailPage({
           </h1>
 
           <p className="mt-4 text-zinc-400">
-            全{product.imageCount}枚収録
+            全{product.imageCount}枚収録(PNG画像・PDFファイル付き)
           </p>
 
           <p className="mt-6 text-3xl font-semibold">
             ¥{product.price.toLocaleString("ja-JP")}
-          </p>
-
-          <p className="mt-6 leading-7 text-zinc-300">
-            収録内容や作品の説明をここに追加していきます。
           </p>
 
           <button
@@ -84,6 +80,14 @@ export default async function StoreDetailPage({
           >
             購入機能は準備中
           </button>
+
+          <p className="mt-6 leading-7 text-zinc-300 whitespace-pre-line">
+            {product.description}
+          </p>
+
+          
+
+
         </section>
       </div>
 
@@ -92,6 +96,7 @@ export default async function StoreDetailPage({
         image={product.samples[0] ?? product.image}
         gallery={product.samples}
       />
+      <p className="mt-6 leading-7 text-zinc-300 whitespace-pre-line">{product.notice}</p>
     </main>
   );
 }
