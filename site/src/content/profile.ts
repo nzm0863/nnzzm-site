@@ -28,7 +28,7 @@ const snsLinks = [
   },
   {
     name: "Discord",
-    url: "https://discord.gg/WU3KVWqA9",
+    url: "https://discord.gg/Zt8ymvM9j9",
     icon: "discord",
     primary: true,
   },

@@ -1,4 +1,4 @@
-
+import AddToCartButton from "@/components/AddToCartButton";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -40,6 +40,7 @@ export default async function StoreDetailPage({
     notFound();
   }
 
+
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
       <Link
@@ -73,21 +74,11 @@ export default async function StoreDetailPage({
             ¥{product.price.toLocaleString("ja-JP")}
           </p>
 
-          <button
-            type="button"
-            disabled
-            className="mt-8 w-full rounded-xl bg-zinc-700 px-6 py-4 text-zinc-400"
-          >
-            購入機能は準備中
-          </button>
+          <AddToCartButton slug={product.slug} />
 
           <p className="mt-6 leading-7 text-zinc-300 whitespace-pre-line">
             {product.description}
           </p>
-
-          
-
-
         </section>
       </div>
 
