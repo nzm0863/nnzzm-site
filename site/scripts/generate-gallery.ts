@@ -13,9 +13,9 @@ const titleMap: Record<string, string> = {
   mikan: "結城美柑",
   // original
   "game-charactor": "ゲームキャラクター(試作)",
-  white:"白",
-  black:"黒",
-  pink:"ピンク"
+  white: "白",
+  black: "黒",
+  pink: "ピンク",
 };
 
 const setTitleMap: Record<string, string> = {
@@ -24,18 +24,18 @@ const setTitleMap: Record<string, string> = {
   shower: "シャワー",
   cheerleader: "チアリーダー",
   r18_shower: "R18シャワー",
-  beach:"ビーチ",
-  date:"デート",
-  pajamas:"パジャマ",
-  forest:"森",
-  camisole:"キャミソール",
-  r18_camisole:"R18キャミソール",
-  r18_sports:"R18体操服",
-  cosplay:"いろんなコスプレ",
-  whiteT:"白T",
-  r18_towel:"R18タオル",
-  pink_camisole:"ピンクキャミソール",
-  swimwear:"水着",
+  beach: "ビーチ",
+  date: "デート",
+  pajamas: "パジャマ",
+  forest: "森",
+  camisole: "キャミソール",
+  r18_camisole: "R18キャミソール",
+  r18_sports: "R18体操服",
+  cosplay: "いろんなコスプレ",
+  whiteT: "白T",
+  r18_towel: "R18タオル",
+  pink_camisole: "ピンクキャミソール",
+  swimwear: "水着",
 };
 
 const slugify = (category: string, character: string) =>
@@ -74,6 +74,12 @@ const galleries = categories.flatMap((category) => {
     const sets = fs
       .readdirSync(characterPath)
       .filter((set) => fs.statSync(path.join(characterPath, set)).isDirectory())
+      // セットフォルダの更新日時が新しい順（最後に追加・更新したセットが先頭）
+      .sort(
+        (a, b) =>
+          fs.statSync(path.join(characterPath, b)).mtimeMs -
+          fs.statSync(path.join(characterPath, a)).mtimeMs,
+      )
       .map((set) => {
         const setPath = path.join(characterPath, set);
 
@@ -82,10 +88,17 @@ const galleries = categories.flatMap((category) => {
           .filter((file) => file.endsWith(".webp") && file !== "cover.webp")
           .sort();
 
+        // cover.webp の更新日時を ?v= に付ける（差し替え時にURLが変わり、キャッシュを回避できる）
+        const coverPath = path.join(setPath, "cover.webp");
+        const coverVersion = fs.existsSync(coverPath)
+          ? Math.floor(fs.statSync(coverPath).mtimeMs / 1000)
+          : 0;
+
         return {
           slug: set,
           title: setTitleMap[set] ?? set,
-          cover: `${GALLERY_BASE_URL}/${category}/${character}/${set}/cover.webp`,
+          cover: `${GALLERY_BASE_URL}/${category}/${character}/${set}/cover.webp?v=${coverVersion}`,
+
 
           images: images.map(
             (image) =>
