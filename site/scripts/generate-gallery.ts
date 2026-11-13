@@ -13,6 +13,9 @@ const titleMap: Record<string, string> = {
   mikan: "結城美柑",
   // original
   "game-charactor": "ゲームキャラクター(試作)",
+  white:"白",
+  black:"黒",
+  pink:"ピンク"
 };
 
 const setTitleMap: Record<string, string> = {
