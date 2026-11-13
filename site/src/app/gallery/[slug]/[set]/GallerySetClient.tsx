@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Gallery, GallerySet } from "@/content/gallery";
@@ -60,6 +60,50 @@ export default function GallerySetClient({
 
     changeImage(prevIndex);
   }, [gallerySet, selectedIndex, changeImage]);
+
+  // スワイプ検出用（タッチ開始位置と、スワイプした時刻を覚えておく）
+  const touchStartX = useRef<number | null>(null);
+  const swipedAt = useRef(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+
+    if (Math.abs(dx) > 50) {
+      swipedAt.current = Date.now();
+      if (dx < 0) {
+        nextImage();
+      } else {
+        prevImage();
+      }
+    }
+  };
+
+  // スワイプ直後に click が発火して二重に動くのを防ぐ
+  const justSwiped = () => Date.now() - swipedAt.current < 300;
+
+  const handleBackdropClick = () => {
+    if (justSwiped()) return;
+    closeImage();
+  };
+
+  const handleTapPrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (justSwiped()) return;
+    prevImage();
+  };
+
+  const handleTapNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (justSwiped()) return;
+    nextImage();
+  };
 
   // キーボード操作 + 前後画像の先読み
   useEffect(() => {
@@ -140,30 +184,35 @@ export default function GallerySetClient({
       {/* 詳細表示 */}
       {selectedIndex !== null && (
         <div
-          onClick={closeImage}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
+          onClick={handleBackdropClick}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          className="fixed inset-0 z-50 flex touch-none items-center justify-center bg-black/95"
         >
-          {/* 閉じる */}
+          {/* 閉じる（タップゾーンより手前に出すため z-20） */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               closeImage();
             }}
-            className="absolute top-6 right-6 z-10 text-3xl text-white hover:text-sky-400"
+            className="absolute top-6 right-6 z-20 text-3xl text-white hover:text-sky-400"
           >
             ✕
           </button>
 
-          {/* 前へ */}
+          {/* 左タップで前へ（透明ゾーン） */}
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              prevImage();
-            }}
-            className="absolute left-4 z-10 rounded-full bg-white/10 p-4 text-3xl text-white backdrop-blur hover:bg-white/20"
-          >
-            ❮
-          </button>
+            aria-label="前の画像"
+            onClick={handleTapPrev}
+            className="absolute inset-y-0 left-0 z-10 w-1/3"
+          />
+
+          {/* 右タップで次へ（透明ゾーン） */}
+          <button
+            aria-label="次の画像"
+            onClick={handleTapNext}
+            className="absolute inset-y-0 right-0 z-10 w-1/3"
+          />
 
           {/* 詳細画像 */}
           <Image
@@ -178,23 +227,12 @@ export default function GallerySetClient({
             unoptimized
           />
 
-          {/* 次へ */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              nextImage();
-            }}
-            className="absolute right-4 z-10 rounded-full bg-white/10 p-4 text-3xl text-white backdrop-blur hover:bg-white/20"
-          >
-            ❯
-          </button>
-
           {/* カウンター */}
           <p className="absolute bottom-20 left-20 text-sm text-zinc-400">
             {selectedIndex + 1} / {gallerySet.images.length}
           </p>
 
-          <p className="absolute bottom-14 left-20 text-xs text-zinc-500">
+          <p className="absolute bottom-14 left-20 text-xs text-zinc-500 hidden md:block">
             ← → キーで切替 / Escで閉じる
           </p>
         </div>
