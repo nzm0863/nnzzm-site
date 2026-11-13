@@ -222,7 +222,7 @@ export default function GallerySetClient({
             height={1800}
             sizes="90vw"
             onClick={(e) => e.stopPropagation()}
-            className="h-[95vh] w-auto max-w-[90vw] object-contain"
+            className="h-auto w-auto max-h-[100dvh] max-w-[100vw] object-contain"
             loading="eager"
             unoptimized
           />
