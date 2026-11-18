@@ -46,6 +46,12 @@ const storeLinks = [
     icon: "store",
     primary: true,
   },
+  {
+    name: "Patreon",
+    url: "https://www.patreon.com/cw/nnzzm",
+    icon: "store",
+    primary: true,
+  },
 ];
 
 const IoTTechs = [
