@@ -9,14 +9,14 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="group overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 transition-all p-2 duration-300 hover:-translate-y-1 hover:border-sky-500/40">
+    <article className="group overflow-hidden border border-zinc-800 bg-zinc-900/40 transition-all p-2 duration-300 hover:-translate-y-1 hover:border-sky-500/40">
       <Link href={`/projects/${project.slug}`}>
         <Image
           src={project.thumbnail || "/images/projects/default-cover.webp"}
           alt={project.title}
           width={640}
           height={400}
-          className="aspect-video w-full rounded-xl object-cover transition duration-300 group-hover:scale-[1.02]"
+          className="aspect-video w-full rounded-sm object-cover transition duration-300 group-hover:scale-[1.02]"
           unoptimized
         />
       </Link>
@@ -54,7 +54,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <Link
               href={project.github}
               target="_blank"
-              className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-sky-400"
+              className="flex items-center gap-2 rounded-sm border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-sky-400"
             >
               <FaGithub size={18} />
               <span className="text-sm">GitHub</span>
@@ -65,7 +65,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <Link
               href={project.youtube}
               target="_blank"
-              className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-pink-400 hover:text-pink-400"
+              className="flex items-center gap-2 rounded-sm border border-zinc-700 px-4 py-3 transition hover:border-pink-400 hover:text-pink-400"
             >
               <FaYoutube size={18} />
               <span className="text-sm">YouTube</span>

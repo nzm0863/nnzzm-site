@@ -39,7 +39,7 @@ export default function ToolsPage() {
         {tools.map((tool) => (
           <article
             key={tool.title}
-            className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/40 transition hover:border-sky-400"
+            className="group flex h-full flex-col overflow-hidden border border-zinc-800 bg-zinc-950/40 transition hover:border-sky-400"
           >
             <Image
               src={tool.image}
@@ -86,7 +86,7 @@ export default function ToolsPage() {
                     href={tool.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-sky-400"
+                    className="flex items-center gap-2 rounded-sm border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-sky-400"
                   >
                     <FaGithub />
                     GitHub
@@ -98,7 +98,7 @@ export default function ToolsPage() {
                     href={tool.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-pink-400 hover:text-pink-400"
+                    className="flex items-center gap-2 rounded-sm border border-zinc-700 px-4 py-3 transition hover:border-pink-400 hover:text-pink-400"
                   >
                     <FaYoutube />
                     YouTube

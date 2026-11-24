@@ -25,6 +25,7 @@ const setTitleMap: Record<string, string> = {
   cheerleader: "チアリーダー",
   r18_shower: "R18シャワー",
   beach: "ビーチ",
+  r18_beach: "R18ビーチ",
   date: "デート",
   pajamas: "パジャマ",
   forest: "森",

@@ -86,7 +86,7 @@ export default function AboutPage() {
               <Link
                 key={project.slug}
                 href={`/projects/${project.slug}`}
-                className="group overflow-hidden rounded-2xl border border-zinc-800 transition hover:border-sky-400"
+                className="group overflow-hidden border border-zinc-800 transition hover:border-sky-400"
               >
                 <Image
                   src={project.thumbnail}
@@ -187,7 +187,7 @@ export default function AboutPage() {
                 key={link.name}
                 href={link.url}
                 target="_blank"
-                className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-pink-400 hover:text-pink-400"
+                className="flex items-center gap-2 rounded-sm border border-zinc-700 px-4 py-3 transition hover:border-pink-400 hover:text-pink-400"
               >
                 <Icon size={18} />
                 {link.name}
@@ -207,7 +207,7 @@ export default function AboutPage() {
                 key={link.name}
                 href={link.url}
                 target="_blank"
-                className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-sky-400"
+                className="flex items-center gap-2 rounded-sm border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-sky-400"
               >
                 <Icon size={18} />
                 {link.name}
@@ -227,7 +227,7 @@ export default function AboutPage() {
                 key={link.name}
                 href={link.url}
                 target="_blank"
-                className="flex items-center gap-2 rounded-xl border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-green-500"
+                className="flex items-center gap-2 rounded-sm border border-zinc-700 px-4 py-3 transition hover:border-sky-400 hover:text-green-500"
               >
                 <Icon size={18} />
                 {link.name}
