@@ -1,5 +1,16 @@
 import Link from "next/link";
 import { navItems } from "@/constants/navigation";
+import { profile } from "@/content/profile";
+
+const footerLinkNames = ["X", "Pixiv", "Discord", "YouTube", "BOOTH", "Patreon"];
+const allProfileLinks = [
+  ...profile.snsLinks,
+  ...profile.techsLinks,
+  ...profile.storeLinks,
+];
+const footerLinks = footerLinkNames
+  .map((name) => allProfileLinks.find((link) => link.name === name))
+  .filter((link) => link !== undefined);
 
 export default function Footer() {
   return (
@@ -43,22 +54,35 @@ export default function Footer() {
               お問い合わせ
             </h4>
 
-            <p className="text-sm leading-7 text-zinc-300">
-              ご質問やご意見がございましたら、
-              <br />
-              お気軽にお声がけください。
-            </p>
-
             <a
-              href="mailto:nzm91264@gmail.com"
-              className="mt-3 inline-block text-sm text-sky-500 transition hover:text-sky-300"
+              href="mailto:nakamura.rundev@gmail.com"
+              className="inline-block text-sm text-sky-500 transition hover:text-sky-300"
             >
               nakamura.rundev@gmail.com
             </a>
           </section>
         </div>
 
-        <div className="mt-12 border-t border-zinc-800 py-2 text-center">
+        <div className="mt-12 border-t border-zinc-800 pt-6">
+          <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+            <span className="text-xs font-semibold tracking-wider text-zinc-500">
+              リンク
+            </span>
+            {footerLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-green-600 transition hover:text-red-400"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <div className="mt-6 border-t border-zinc-800 py-2 text-center">
           <p className="text-xs tracking-wide text-zinc-500">
             © {new Date().getFullYear()} nnzzm.com · Built by Nakamura.
           </p>
