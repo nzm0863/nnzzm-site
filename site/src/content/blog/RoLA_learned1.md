@@ -153,7 +153,7 @@ Comfy UIを使っています。
 では使ってみましょう。
 
 
-![kohya_ss2](/images/blog/kohya_ss2.webp)
+![LoRA2](/images/blog/LoRA2.webp)
 
 ↑モデルの強度を上げるの忘れずに。0だと意味ないからね。
 
