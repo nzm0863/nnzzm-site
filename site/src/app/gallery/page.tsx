@@ -29,17 +29,19 @@ export default function GalleryPage() {
         <h1 className="text-xl sm:text-5xl tracking-wide">
           AI Gallery
         </h1>
-        {profile.storeLinks.map((store) => (
-          <Link
-            key={store.name}
-            href={store.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs sm:text-lg text-sky-400 transition hover:text-sky-300"
-          >
-            {store.name}はこちら→
-          </Link>
-        ))}
+        <div className="flex flex-col items-end gap-1 sm:gap-2">
+          {profile.storeLinks.map((store) => (
+            <Link
+              key={store.name}
+              href={store.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs sm:text-lg text-sky-400 transition hover:text-sky-300"
+            >
+              {store.name}はこちら→
+            </Link>
+          ))}
+        </div>
       </div>
 
       <section className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
