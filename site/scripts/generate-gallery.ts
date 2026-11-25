@@ -23,20 +23,22 @@ const setTitleMap: Record<string, string> = {
   miko: "巫女",
   shower: "シャワー",
   cheerleader: "チアリーダー",
-  r18_shower: "R18シャワー",
   beach: "ビーチ",
-  r18_beach: "R18ビーチ",
   date: "デート",
   pajamas: "パジャマ",
   forest: "森",
   camisole: "キャミソール",
-  r18_camisole: "R18キャミソール",
-  r18_sports: "R18体操服",
   cosplay: "いろんなコスプレ",
   whiteT: "白T",
-  r18_towel: "R18タオル",
   pink_camisole: "ピンクキャミソール",
   swimwear: "水着",
+
+  r18_shower: "R18シャワー",
+  r18_beach: "R18ビーチ",
+  r18_towel: "R18タオル",
+  r18_camisole: "R18キャミソール",
+  r18_sports: "R18体操服",
+  r18_nude: "R18ヌード",
 };
 
 const slugify = (category: string, character: string) =>

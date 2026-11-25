@@ -10,7 +10,7 @@
     "webp": "powershell -ExecutionPolicy Bypass -File ./scripts/convert-webp.ps1",
     "gallery": "tsx ./scripts/generate-gallery.ts",
     "gallery-dev": "npm run webp && npm run gallery && npm run dev",
-    "upload": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/upload-gallery-diff-to-r2.ps1"
+    "upload": "pwsh -NoProfile -ExecutionPolicy Bypass -File ./scripts/upload-gallery-diff-to-r2-parallel.ps1"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
