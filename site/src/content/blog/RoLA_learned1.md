@@ -3,7 +3,7 @@ slug: "RoLA_learned1"
 title: "RoLA学習の記録1"
 category: "AI"
 date: "2026-11-24"
-thumbnail: "/images/blog/white1.webp"
+thumbnail: "/images/blog/RoLA_learned1/white1.webp"
 description: "RoLA作成について試したこと"
 seoDescription: "RoLA作成について試したこと"
 tags:
@@ -17,7 +17,7 @@ tags:
 
 
 # PC環境
-![PC](/images/blog/PC.webp)
+![PC](/images/blog/RoLA_learned1/PC.webp)
 
 うp主のPC構成はこれ。
 数カ月前にグラボとメモリ、電源を強化しました。
@@ -31,7 +31,7 @@ tags:
 
 
 # AIイラスト生成の環境
-![ComfyUI](/images/blog/ComfyUI.webp)
+![ComfyUI](/images/blog/RoLA_learned1/ComfyUI.webp)
 
 人によるでしょうが、うp主の場合はローカル生成。
 Comfy UIを使っています。
@@ -43,7 +43,7 @@ Comfy UIを使っています。
 
 
 # RoLAってなにさ？
-![LoRA2](/images/blog/LoRA2.webp)
+![LoRA2](/images/blog/RoLA_learned1/LoRA2.webp)
 
 ### まあ簡単に言えばイラスト生成の補助に使える追加データです。
 
@@ -57,7 +57,7 @@ Comfy UIを使っています。
 
 
 # RoLAを作ってみる
-![kohya_ss](/images/blog/kohya_ss.webp)
+![kohya_ss](/images/blog/RoLA_learned1/kohya_ss.webp)
 
 学習させる方法はいろいろあるらしいですが、うp主は<span style="color: rgb(0, 205, 0); font-size:20px;">kohya_ss</span >というツールを使用しています。
 
@@ -66,7 +66,7 @@ Comfy UIを使っています。
 
 で、まずは下ごしらえとしてイラストを50枚ほど用意します。多ければ多いほどいいってわけでもないみたい。
 
-![white2](/images/blog/white2.webp)
+![white2](/images/blog/RoLA_learned1/white2.webp)
 
 ↑これはサンプルだけどいろんな構図で用意するべし。
 
@@ -75,7 +75,7 @@ Comfy UIを使っています。
 色合いを揃えたい場合はなるべく近い色合いの画像で揃える。同じポーズを安定させたいならそのポーズのいろんな画像を入れる。そんなかんじ。
 
 
-![kohya_ss2](/images/blog/kohya_ss2.webp)
+![kohya_ss2](/images/blog/RoLA_learned1/kohya_ss2.webp)
 
 画像を揃えたら下準備その2。
 
@@ -92,7 +92,7 @@ Comfy UIを使っています。
 これでタグ付けできてるかtxtをチェックしたらいよいよ学習させる設定へ。
 
 
-![kohya_ss3](/images/blog/kohya_ss3.webp)
+![kohya_ss3](/images/blog/RoLA_learned1/kohya_ss3.webp)
 
 ここでいろいろ設定。
 
@@ -100,7 +100,7 @@ Comfy UIを使っています。
 こういうのもAIに聞いちゃうのが吉。
 
 
-![kohya_ss4](/images/blog/kohya_ss4.webp)
+![kohya_ss4](/images/blog/RoLA_learned1/kohya_ss4.webp)
 
 このEpochが学習を何周させるか決めるもの。
 
@@ -123,7 +123,7 @@ Comfy UIを使っています。
 ↑これ書くまで間違えて覚えてました。AIにこれで合ってる？って聞いたら違ってびっくり。
 ブログでも動画作成でもそうだけど、<span style="color:rgb(0, 181, 157)">アウトプット大事！</span>
 
-![kohya_ss5](/images/blog/kohya_ss5.webp)
+![kohya_ss5](/images/blog/RoLA_learned1/kohya_ss5.webp)
 
 もろもろ設定したらsample promptsを設定。
 
@@ -136,14 +136,14 @@ Comfy UIを使っています。
 サンプル生成する間は学習が止まるので、あんま増やさないほうがいいね。
 
 
-![kohya_ss6](/images/blog/kohya_ss6.webp)
+![kohya_ss6](/images/blog/RoLA_learned1/kohya_ss6.webp)
 
 学習が終わるとコンソール画面がこんな表示。これでおｋ。
 
 いくつか学習されたファイルができるので一番新しいやつをLoRAフォルダの中にいれてComfy UIを再起動。
 
 
-![kohya_ss7](/images/blog/kohya_ss7.webp)
+![kohya_ss7](/images/blog/RoLA_learned1/kohya_ss7.webp)
 
 張り付けるのは一つでいい。LoRAを読み込むで表示されればおっけー！
 
@@ -153,15 +153,15 @@ Comfy UIを使っています。
 では使ってみましょう。
 
 
-![LoRA2](/images/blog/LoRA2.webp)
+![LoRA2](/images/blog/RoLA_learned1/LoRA2.webp)
 
 ↑モデルの強度を上げるの忘れずに。0だと意味ないからね。
 
 トリガーワードで試してみればわかるはず。シード値を固定にしてRoLAの強度を変えたりしてみるとわかりやすい。
 
 
-![white3](/images/blog/white3.webp)
-![white4](/images/blog/white4.webp)
+![white3](/images/blog/RoLA_learned1/white3.webp)
+![white4](/images/blog/RoLA_learned1/white4.webp)
 
 # <span style="color:rgb(128, 193, 255)">うむ、かわいい！</span>
 
@@ -183,7 +183,7 @@ Comfy UIを使っています。
 
 # そしてデメリットもあります。
 
-![white_miss](/images/blog/white_miss.webp)
+![white_miss](/images/blog/RoLA_learned1/white_miss.webp)
 
 ↑指がめっちゃおおい！
 
@@ -194,7 +194,7 @@ Comfy UIを使っています。
 プロンプトでネガティブに指定してもまるで覆せないレベル。じゃあどうするか。
 
 
-![fingur](/images/blog/fingur.webp)
+![fingur](/images/blog/RoLA_learned1/fingur.webp)
 
 ↑一つは手を書きかえてもらう。
 
@@ -217,7 +217,7 @@ AIが手を見つけて、そこを書き換えてくれます。
 
 そこでその2。
 
-![white5](/images/blog/white5.webp)
+![white5](/images/blog/RoLA_learned1/white5.webp)
 
 # 手が映った画像を入れる。
 
@@ -227,7 +227,7 @@ AIが手を見つけて、そこを書き換えてくれます。
 多少ましになったけど新しい構図とか入れるとすぐ化けの皮がはがれます。
 
 
-![hand](/images/blog/hand.webp)
+![hand](/images/blog/RoLA_learned1/hand.webp)
 
 # なら手をメインにした画像をいれよう！
 

@@ -3,7 +3,7 @@ slug: "summary-of-changes"
 title: "初回デプロイからの変更点まとめ"
 category: "Next.js"
 date: "2026-10-19"
-thumbnail: "/images/blog/graph.webp"
+thumbnail: "/images/blog/summary-of-changes/graph.webp"
 description: "デプロイしてからいろいろアップデートしたのでまとめた"
 seoDescription: "Next.jsで作ったポートフォリオをデプロイしてからアップデートした部分について"
 tags:
@@ -26,7 +26,7 @@ CloudflareのR2 Object Storageというところに投稿用のイラストた�
 まあ初めて使ったので設定とか何ができるとかまだちんぷんかんぷん( ﾟДﾟ)。
 10GBまで無料で使えるっぽいのでしばらくは大丈夫かな。
 
-![R2](/images/blog/R2.webp)
+![R2](/images/blog/summary-of-changes/R2.webp)
 
 ## ブログのマークダウン対応
 
@@ -50,7 +50,7 @@ CloudflareのR2 Object Storageというところに投稿用のイラストた�
 それでデプロイして試してを繰り返してたらVercelのデプロイストレージが上限ギリギリまで増えちゃってたのだ...<br>
 まあここまでがっつりと作ったものをVercelで公開するのは初めてなので仕方なし！
 
-![graph](/images/blog/graph.webp)
+![graph](/images/blog/summary-of-changes/graph.webp)
 
 ## その他の細かい修正
 画像遷移を続けると読み込みの関係上、一瞬暗くなってから次の画像が表示されるという不具合があったので修正した。
